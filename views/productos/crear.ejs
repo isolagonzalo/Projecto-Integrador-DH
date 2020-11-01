@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Producto</title>
+</head>
+<body>
+    <form action="/productos/crear" method="POST" enctype="multipart/form-data">
+        <label for="nombre">Ingrese el nombre</label>
+        <input type="text" name="nombre">
+        <br>
+        <label for="nombre">Ingrese el precio</label>
+        <input type="number" name="precio">
+        <br>
+        <label for="nombre">Ingrese la Descripcion</label>
+        <input type="text" name="descripcion">
+        <br>
+        <label for="nombre">Ingrese la cantidad</label>
+        <input type="number" name="cantidad">
+        <br>
+        <label for="nombre">Ingrese el Descuento</label>
+        <input type="number" name="descuento">
+        <br>
+        <label for="nombre">Ingrese la categoria</label>
+        <input type="number" name="categoria_id">
+        <br>
+        <label for="nombre">Ingrese el talle</label>
+        <input type="number" name="talle_id">
+        <br>
+        <label for="nombre">Ingrese el color</label>
+        <input type="number" name="color_id">
+        <br>
+        <label for="imagen">Carga la imagen</label>
+        <input type="file" name="imagen">
+        <br>
+        <button type="submit">Crear Producto</button>
+    </form>
+</body>
+</html>

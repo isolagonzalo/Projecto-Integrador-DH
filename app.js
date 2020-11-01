@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
+var productosRouter = require('./routes/productos');
 var usersRouter = require('./routes/users');
 //var homeRouter = require('./routes/home'); :v por si hace falta
 
@@ -21,6 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/productos', productosRouter);
 app.use('/users', usersRouter);
 //app.use('/home', homeRouter);
 
