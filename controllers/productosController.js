@@ -26,6 +26,13 @@ const produtosController = {
         .then(function(){
             res.redirect('/productos')
         })
-    }
+    },
+    detalle:(req,res)=>{
+        db.Producto.findPk(red.params.id)
+        .then(producto =>{
+            res.render('productos/detalle',{producto})
+        })
+        .catch(error => res.send(error))
+    },
 }
 module.exports = produtosController;

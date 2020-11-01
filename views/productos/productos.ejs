@@ -2,7 +2,7 @@
 <html lang="en">
     <%- include('../partials/head', {title: 'Productos'}) %>
 <body>
-    <%- include('../partials/header', {title: 'Productos'}) %>
+    <%- include('../partials/header',) %>
     <main>
         <div class="logoSuperior">
             <a href="/" class="logo-centro">
@@ -49,16 +49,18 @@
             <h2>Productos Destacados</h2>
             <div class="articulos">
                 <% for(var i = 0; i < productos.length; i++){ %>
-                    <article> 
-                        <div class="figure">  
-                            <img src="/images/imagenesProductos/<%=productos[i].imagen%>" alt="">
-                        </div>
-                        <div class="descrip">
-                            <p class="tipoProduc" name="nombre"><%=productos[i].nombre%></p>
-                            <h4 class="precio">$<%=productos[i].precio%></h4>
-                            <h4 class="cuotas" name="descuento"><%=productos[i].descuento%></h4>   
-                        </div>
-                    </article>
+                    <a href="/productos/detalle/<%=productos[i].id%>">
+                        <article> 
+                            <div class="figure">  
+                                <img src="/images/imagenesProductos/<%=productos[i].imagen%>" alt="">
+                            </div>
+                            <div class="descrip">
+                                <p class="tipoProduc" name="nombre"><%=productos[i].nombre%></p>
+                                <h4 class="precio">$<%=productos[i].precio%></h4>
+                                <h4 class="cuotas" name="descuento"><%=productos[i].descuento%></h4>   
+                            </div>
+                        </article>
+                    </a>
                 <% } %>
             </div>  
         </section>

@@ -25,4 +25,7 @@ router.post('/crear',upload.any(),productosController.guardar)
 /*
 router.get('/', controller.index )
 */
+/*detalle de producto*/
+router.get('/detalle/:id',productosController.detalle)
+
 module.exports = router;
