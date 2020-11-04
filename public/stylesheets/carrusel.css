@@ -1,4 +1,6 @@
-
+.center-align{
+    margin-bottom: 0px;
+}
 .titulo {
     font-size: 40px;
     font-family: 'Dancing Script', cursive;
@@ -34,9 +36,7 @@
 
 /*ESTILOS DE MATERIALIZE*/
 
-.carousel {
-    min-height: 500px;
-}
+
 
 .carousel .carousel-item{
     display: flex;
@@ -44,8 +44,8 @@
     justify-content: center;
     align-items: center;
     user-select: none;
-    width: 500px;
-    height: 500px;
+    width: 320px;
+    height: 300px;
 }
 
 .carousel .carousel-item img{

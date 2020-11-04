@@ -1,0 +1,46 @@
+h1{
+    text-align: center;
+    font-size: 27px;
+    margin-top: 0;
+}
+.detalleProducto{
+    width: 95%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: auto;
+    margin-bottom: 20px;
+}
+.detalleProducto div img{
+    width: auto;
+    height: 480x;
+    border-radius: 20px;
+}
+.detalleProducto div{
+    width: 45%;
+}
+.detalleProducto div p{
+    margin:10px;
+}
+.cajaDeImagen{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 30px;
+}
+.detalleProducto div .mediosDePagoImagen{
+    width: 250px;
+    height: auto;
+}
+.boton-comprar-detalle{
+    background-color: black;
+    border-radius: 5px;
+    width: 180px;
+    height: 50px;
+    color: blanchedalmond; 
+}
+.boton-comprar-detalle:hover{
+    background-color: rgb(54, 54, 54);
+}

@@ -28,11 +28,10 @@ const produtosController = {
         })
     },
     detalle:(req,res)=>{
-        db.Producto.findPk(red.params.id)
-        .then(producto =>{
-            res.render('productos/detalle',{producto})
-        })
-        .catch(error => res.send(error))
-    },
+        db.Producto.findByPk(req.params.id)
+        .then(producto=>{
+            res.render('productos/detalle',{producto:producto}) 
+        })   
+    }
 }
 module.exports = produtosController;
