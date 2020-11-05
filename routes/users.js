@@ -6,5 +6,6 @@ var usersController = require('../controllers/usersController')
 router.get('/login',usersController.login);
 //REGISTRO
 router.get('/registro',usersController.registro);
+router.post('/registro',usersController.usuarioResgistrado);
 
 module.exports = router;
