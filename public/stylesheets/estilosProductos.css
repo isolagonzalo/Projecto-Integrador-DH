@@ -1,0 +1,51 @@
+.caja-detalle-producto{
+    padding: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 4px;   
+}
+.caja-producto{
+    border-radius: 10px;
+}
+.caja-producto .figure{
+    border-radius: 10px;
+}
+.caja-producto .figure img{
+    border-top-left-radius: 10px ;
+    border-top-right-radius: 10px;
+}
+.nombre-producto{
+    color: black;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    font-size: larger;
+    margin-top: 3px;
+    margin-bottom: 0;
+    border-bottom: 1px 1px 1px black;
+}
+hr{
+    color: rgba(236, 236, 236, 0.5);
+    width: 100%;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.precio-producto{
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 4px;
+    margin-bottom: 2px;
+    margin-left: 5px;
+}
+.cuotas-producto{
+    margin-left: 6px;
+    margin-top: 6px;
+    margin-bottom: 5px;
+    color: rgb(10, 160, 18);
+    font-size: 20px;
+    font-family: cursive;
+}
+@media only screen and (min-width: 400px){
+    
+}

@@ -13,60 +13,78 @@
         <div class="container3">
             <div class="row">
                 <div class="col s12">
-                    <h1 class="center-align titulo">Categorías Principales</h1>
+                    <div class="tituloYflechas">
+                        <i class="fas fa-long-arrow-alt-left"></i>
+                        <h1 class="center-align titulo">Categorías Principales</h1>
+                        <i class="fas fa-long-arrow-alt-right"></i>
+                    </div>
+                    
 
-                    <div class="carousel center-align">
+                    <div class="carousel center-align tamañoCarrusel">
                         <div class="carousel-item">
                             <h2 class="subtitulo">Remeras</h2>
                             <div class="linea-division"></div>
-                            <img src="/images/imagenesProductos/remeras.jpeg" alt="">
+                            <a href="/"><img src="/images/imagenesProductos/remeras.jpeg" alt=""></a>
                         </div>
 
                         <div class="carousel-item">
                             <h2 class="subtitulo">Camperas</h2>
                             <div class="linea-division"></div>
-                            <img src="/images/imagenesProductos/camperas.jpg" alt="">
+                            <a href="/"><img src="/images/imagenesProductos/camperas.jpg" alt=""></a>
                         </div>
 
                         <div class="carousel-item">
                             <h2 class="subtitulo">Jeans</h2>
                             <div class="linea-division"></div>
-                            <img src="/images/imagenesProductos/jeans.jpg" alt="">
+                            <a href="/"><img src="/images/imagenesProductos/jean1.jpg" alt=""></a>
                         </div>
 
                         <div class="carousel-item">
                             <h2 class="subtitulo">Camisas</h2>
                             <div class="linea-division"></div>
-                            <img src="/images/imagenesProductos/camisas.jpg" alt="">
+                            <a href="/"><img src="/images/imagenesProductos/camisas.jpg" alt=""></a>
+                        </div>
+
+                        <div class="carousel-item">
+                            <h2 class="subtitulo">Camisas</h2>
+                            <div class="linea-division"></div>
+                            <a href="/"><img src="/images/imagenesProductos/camisas.jpg" alt=""></a>
+                        </div>
+
+                        <div class="carousel-item">
+                            <h2 class="subtitulo">Camisas</h2>
+                            <div class="linea-division"></div>
+                            <a href="/"><img src="/images/imagenesProductos/camisas.jpg" alt=""></a>
                         </div>
                     </div>
 
                 </div>
             </div>
         </div>
-
-        <section>
-            <h2>Productos Destacados</h2>
-            <div class="articulos">
-                <% for(var i = 0; i < productos.length; i++){ %>
-                        <article> 
-                            <a href="/productos/detalle/<%=productos[i].id%>">
-                                <div class="figure">  
-                                    <img src="/images/imagenesProductos/<%=productos[i].imagen%>" alt="">
-                                </div>
-                                <div class="descrip">
-                                    <p class="tipoProduc" name="nombre"><%=productos[i].nombre%></p>
-                                    <h4 class="precio">$<%=productos[i].precio%></h4>
-                                    <h4 class="cuotas" name="descuento"><%=productos[i].descuento%></h4>   
-                                </div>
-                            </a>
-                        </article>
-                    
-                <% } %>
-            </div>  
-        </section>
-        <a href="/productos/crear"><Button>Crear Producto</Button></a>
+        
     </main>
+    <section>
+        <h2 class="productosDestacados">Productos Destacados</h2>
+        <div class="caja-productos">
+            <% for(var i = 0; i < productos.length; i++){ %>
+                    <article class="caja-producto"> 
+                        <a href="/productos/detalle/<%=productos[i].id%>">
+                            <div class="figure">  
+                                <img src="/images/imagenesProductos/<%=productos[i].imagen%>" alt="">
+                            </div>
+                            <div class="caja-detalle-producto">
+                                <p class="nombre-producto" name="nombre"><%=productos[i].nombre%></p>
+                                <hr>
+                                <h4 class="precio-producto">$<%=productos[i].precio%></h4>
+                                <h4 class="cuotas-producto" name="descuento"><%=productos[i].descuento%>%OFF</h4>   
+                            </div>
+                        </a>
+                    </article>
+                
+            <% } %>
+        </div>  
+    </section>
+    <a href="/productos/crear"><Button>Crear Producto</Button></a>
 
 
     <footer>
@@ -119,6 +137,7 @@
 
     <script src="/javascripts/menu.js"></script>
 
+    <script src="/javascripts/masonry.js"></script>
 
 </body>
 </html>

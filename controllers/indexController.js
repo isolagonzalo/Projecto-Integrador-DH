@@ -1,6 +1,12 @@
+let db = require('../database/models')
+
 const indexController = {
     inicio: function(req, res){   
-        res.render('principales/index');
+        db.Producto.findAll()
+        .then(productos =>{
+            res.render('principales/index',{productos})
+        })
+        .catch(error => res.send(error))
     },
     comoComprar:(req,res)=>{
         res.render('principales/comoComprar')

@@ -61,74 +61,28 @@
                 </div>
             </div>
         </div>
-
-        <section>
-            <h2 class="productosDestacados">Productos Destacados</h2>
-            <div class="articulos">  
-                <article> 
-                    <div class="figure">  
-                        <img src="" alt="">
-                    </div>
-                    <div class="descrip">
-                        <p class="tipoProduc">Descripción</p>
-                        <h4 class="precio">$6.770</h4>
-                        <h4 class="cuotas">200 cuotas sin interes</h4>
-                        
-                        
-                    </div>
-                </article>
-
-                <article>
-                    <div class="figure">
-                        <img src="" alt="">
-                    </div>
-                    <div class="descrip">
-                        <p class="tipoProduc">Descripción</p>
-                        <h4 class="precio">$230.000</h4>
-                        <h4 class="cuotas">200 cuotas sin interes</h4>
-                    </div>
-                </article>
-
-                <article>
-                    <div class="figure"> 
-                        <img  src="" alt="">
-                    </div>
-                    <div class="descrip">
-                        <p class="tipoProduc">Descripción</p>
-                        <h4 class="precio">$70.500</h4>
-                        <h4 class="cuotas">200 cuotas sin interes</h4>
-                        
-                    </div>
-                </article>
-
-                <article>
-                    <div class="figure">  
-                        <img src="" alt="">
-                    </div>
-                    <div class="descrip">
-                        <p class="tipoProduc">Descripción</p>
-                        <h4 class="precio">$34.000</h4>
-                        <h4 class="cuotas">200 cuotas sin interes</h4>
-                        
-                    </div>
-                </article>
-
-                <article>
-                    <div class="figure">  
-                        <img src="" alt="">
-                    </div>
-                    <div class="descrip">
-                        <p class="tipoProduc">Descripción</p>
-                        <h4 class="precio">$34.000</h4>
-                        <h4 class="cuotas">200 cuotas sin interes</h4>
-                        
-                    </div>
-                </article>
-            </div>  
-            
-        </section>
     </main>
-
+    <section>
+        <h2 class="productosDestacados">Productos Destacados</h2>
+        <div class="caja-productos">
+            <% for(var i = 0; i < productos.length; i++){ %>
+                    <article class="caja-producto"> 
+                        <a href="/productos/detalle/<%=productos[i].id%>">
+                            <div class="figure">  
+                                <img src="/images/imagenesProductos/<%=productos[i].imagen%>" alt="">
+                            </div>
+                            <div class="caja-detalle-producto">
+                                <p class="nombre-producto" name="nombre"><%=productos[i].nombre%></p>
+                                <hr>
+                                <h4 class="precio-producto">$<%=productos[i].precio%></h4>
+                                <h4 class="cuotas-producto" name="descuento"><%=productos[i].descuento%>%OFF</h4>   
+                            </div>
+                        </a>
+                    </article>
+                
+            <% } %>
+        </div>  
+    </section>
 
     <footer>
         <div class="container">
@@ -179,5 +133,9 @@
     <script src="/javascripts/jquery.min.js"></script>
 
     <script src="/javascripts/menu.js"></script>
+
+    <script src="/javascripts/masonry.js"></script>
+
+    <script src="/javascripts/validacionesVista-login.js"></script>
 </body>
 </html>
