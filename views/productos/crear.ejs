@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/headRegistroLogin') %>
+    <%- include('../partials/headRegistroLogin',{title:'Crear Producto'}) %>
 <body>
     <%- include('../partials/header') %>
     <main>
@@ -15,31 +15,74 @@
     <form action="/productos/crear" method="POST" enctype="multipart/form-data" class="formularioPerris">
         <label for="nombre">Ingrese el nombre</label>
         <input type="text" name="nombre">
+        <div class="error nombre">
+            <p class="p-errores"></p>
+        </div>
         <br>
         <label for="nombre">Ingrese el precio</label>
         <input type="number" name="precio">
+        <div class="error precio">
+            <p class="p-errores"></p>
+        </div>
         <br>
         <label for="nombre">Ingrese la Descripcion</label>
         <input type="text" name="descripcion">
+        <div class="error descripcion">
+            <p class="p-errores"></p>
+        </div>
         <br>
         <label for="nombre">Ingrese la cantidad</label>
         <input type="number" name="cantidad">
+        <div class="error cantidad">
+            <p class="p-errores"></p>
+        </div>
         <br>
         <label for="nombre">Ingrese el Descuento</label>
         <input type="number" name="descuento">
+        <div class="error descuento">
+            <p class="p-errores"></p>
+        </div>
         <br>
         <label for="nombre">Ingrese la categoria</label>
         <input type="number" name="categoria_id">
+        <div class="error categoria">
+            <p class="p-errores"></p>
+        </div>
         <br>
         <label for="nombre">Ingrese el talle</label>
         <input type="number" name="talle_id">
+        <div class="error talle">
+            <p class="p-errores"></p>
+        </div>
         <br>
         <label for="nombre">Ingrese el color</label>
         <input type="number" name="color_id">
+        <div class="error color">
+            <p class="p-errores"></p>
+        </div>
         <br>
-        <label for="imagen">Carga la imagen</label>
-        <input class="subir-imagen" type="file" name="imagen">
+        <label for="imagen">Carga la imagen "Principal"</label>
+        <BR></BR>
+            <div class="botones-input-file" id="primer-button">Subir imagen <i class="fas fa-file-upload"></i>
+            <input class="subir-imagen-principal" type="file" name="imagen" id="img-principal">
+            </div>
         <br>
+        <hr>
+        <label for="imagen">Carga otras imagenes (OPCIONAL)</label>
+        <br>
+        <div class="botones-input-file" id="primer-button">Subir imagen <i class="fas fa-file-upload"></i>
+            <input class="subir-imagen-principal" type="file" name="imagen" id="img-principal">
+            </div>
+        <div class="botones-input-file" id="primer-button">Subir imagen <i class="fas fa-file-upload"></i>
+            <input class="subir-imagen-principal" type="file" name="imagen" id="img-principal">
+            </div>
+        <div class="botones-input-file" id="primer-button">Subir imagen <i class="fas fa-file-upload"></i>
+            <input class="subir-imagen-principal" type="file" name="imagen" id="img-principal">
+            </div>
+        <div class="botones-input-file" id="primer-button">Subir imagen <i class="fas fa-file-upload"></i>
+            <input class="subir-imagen-principal" type="file" name="imagen" id="img-principal">
+            </div>
+        <hr>
         <button type="submit">Crear Producto</button>
     </form>
     <footer>
@@ -58,7 +101,7 @@
 
                 <nav class="medios-pago centrar">
                     <h4>MEDIOS DE PAGO</h4>
-                    <a href="#"><img src="imagenes/medios-pago.png" alt=""></a>
+                    <a href="#"><img src="/images/logos/medios-pago.png" alt=""></a>
                 </nav>
 
                 <nav class="contactanos centrar">
@@ -73,20 +116,24 @@
             <div class="seguinos">
                 <h4>Seguinos</h4>
                 <hr class="linea">
-                <a href="#"><img src="imagenes/facebook.png" alt=""></a>
-                <a href="#"><img src="imagenes/instagram-bosquejado.png" alt=""></a>
+                <a href="#"><img src="/images/logos/facebook.png" alt=""></a>
+                <a href="#"><img src="/images/logos/instagram-bosquejado.png" alt=""></a>
             </div>
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-    <script src="/javascripts/scripts.js"></script>
+    <script src="/javascripts/scriptCarrusel.js"></script>
 
     <script src="/javascripts/headroom.min.js"></script>
 
     <script src="/javascripts/jquery.min.js"></script>
 
     <script src="/javascripts/menu.js"></script>
+
+    <script src="/javascripts/cargarImagenes.js"></script>
+
+    <script src="/javascripts/validacionVistaCrearProducto.js"></script>
 </body>
 </html>
 

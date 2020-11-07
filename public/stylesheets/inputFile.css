@@ -1,0 +1,48 @@
+.subir-imagen-principal{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    color: transparent;
+    display: -webkit-box;
+}
+    
+.subir-imagen{
+    display: none;
+}
+button{
+    width: 90% !important;
+    white-space: nowrap;
+}
+.botones-input-file{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    background-color: rgb(12, 12, 12);
+    color: rgb(224, 224, 224);
+    border-radius: 10px;
+    width: 70%;
+    height: 40px;
+    border: 0px;
+}
+.botones-input-file:hover{
+    background-color:grey;
+}
+.b:hover{
+	cursor: pointer;
+}
+
+.p-errores{
+    color: red;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.error{
+    display: none;
+}

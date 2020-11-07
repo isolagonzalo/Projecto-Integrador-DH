@@ -4,16 +4,7 @@
     padding-bottom: 0px;
     margin-top: 4px;   
 }
-.caja-producto{
-    border-radius: 10px;
-}
-.caja-producto .figure{
-    border-radius: 10px;
-}
-.caja-producto .figure img{
-    border-top-left-radius: 10px ;
-    border-top-right-radius: 10px;
-}
+
 .nombre-producto{
     color: black;
     font-family: inherit;
@@ -42,10 +33,11 @@ hr{
     margin-left: 6px;
     margin-top: 6px;
     margin-bottom: 5px;
-    color: rgb(10, 160, 18);
+    color: rgb(0, 63, 3);
     font-size: 20px;
-    font-family: cursive;
+    font-family: monospace;
 }
 @media only screen and (min-width: 400px){
     
+
 }

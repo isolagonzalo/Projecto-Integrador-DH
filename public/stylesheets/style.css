@@ -8,11 +8,12 @@ body{
     background-color: rgb(235, 235, 235);
 }
 .subir-imagen{
-    width: 200px;
+    width: 50%;
     height: 45px;
-    
-    
-    
+}
+.caja-input{
+    width: 50%;
+    margin: auto;
 }
 .caja-productos{
     display: none;

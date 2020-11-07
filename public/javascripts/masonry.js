@@ -5,6 +5,5 @@ window.addEventListener('load',function(){
   var msnry = new Masonry( elem, {
   // options
   itemSelector: '.caja-producto',
-  columns:4
 });
 })
