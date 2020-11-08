@@ -42,7 +42,19 @@ button{
     color: red;
     margin-top: 0;
     margin-bottom: 0;
+    font-size: 12px !important;
 }
 .error{
     display: none;
+}
+.input-crear{
+    color: black !important;
+    padding-left: 10px !important;
+    border-radius: 10px !important;
+    margin-bottom: 6px !important;
+    background-color: rgb(255, 255, 255)!important;
+    box-shadow: none !important;
+}
+.input-crear:focus{
+    background-color: rgb(247, 247, 247) !important;
 }

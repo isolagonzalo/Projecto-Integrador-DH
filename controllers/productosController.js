@@ -28,7 +28,9 @@ const produtosController = {
         })
     },
     detalle:(req,res)=>{
-        db.Producto.findByPk(req.params.id)
+        db.Producto.findByPk(req.params.id,{
+            include:['imgs']
+        })
         .then(producto=>{
             res.render('productos/detalle',{producto:producto}) 
         })   

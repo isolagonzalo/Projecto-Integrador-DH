@@ -2,7 +2,7 @@ let formulario = document.querySelector('.formularioPerris');
 formulario.style.display= ''
 
 formulario.addEventListener('submit', function(e){
-    e.preventDefault();
+    
     let errores = [];
 //validar el nombre
     let campoNombre = document.querySelector('#nombre');
@@ -38,6 +38,7 @@ formulario.addEventListener('submit', function(e){
         errores.push('-Las contraseñas no coinciden')
     }
     if(errores.length>0){
+        e.preventDefault();
         let listaErrores = document.querySelector('div.errores ul');
         listaErrores.innerHTML = ""
         for(let i = 0; i < errores.length; i++){

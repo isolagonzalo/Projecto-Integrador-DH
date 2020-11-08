@@ -18,6 +18,7 @@ formulario.addEventListener('submit', function(e){
 
 //mostras errores
     if(errores.length>0){
+        e.preventDefault();
         let listaErrores = document.querySelector('div.errores ul');
         listaErrores.innerHTML = ""
         for(let i = 0; i < errores.length; i++){

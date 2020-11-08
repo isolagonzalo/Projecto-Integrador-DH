@@ -35,13 +35,21 @@ module.exports = function(sequelize,dataTypes){
             type : dataTypes.STRING
         }
     }
-
     let config ={
         tableName : 'productos',
         timestamps: false
     }
 
     let Producto = sequelize.define(alias,cols,config);
+    Producto.associate = function(models){
+    Producto.hasMany(
+        models.Imagen,
+        {
+            as : 'imgs',
+            foreignKey: 'producto_id'     
+        }
+        )
+    }
 
     return Producto
 
