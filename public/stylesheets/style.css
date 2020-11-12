@@ -5,8 +5,30 @@ body{
     font-size: 1.2rem;
     line-height: 1.6em;
     margin: 0;
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(230, 228, 228);
 }
+.select-input{
+    font-size: 13px;
+    font-weight: bold;
+}
+.whatsapp {
+    position:fixed;
+    width:45px;
+    height:45px;
+    bottom:14px;
+    right:13px;
+    background-color:#4dc247;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-size:30px;
+    font-weight: lighter;
+    z-index:100;
+  }
+  
+  .whatsapp-icon {
+    margin-top:7.8px;
+  }
 .subir-imagen{
     width: 50%;
     height: 45px;
@@ -16,6 +38,8 @@ body{
     margin: auto;
 }
 .caja-productos{
+    margin-top: 27px;
+    margin-bottom: 20px;
     display: none;
     width: 100%;
     padding-right: 0.2%;
@@ -29,7 +53,6 @@ body{
     margin-bottom: 1%;
     background:#fff;
     margin-bottom: 5px;
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.22);
 }
 @media only screen and (min-width: 270px){
     .caja-producto{
@@ -39,15 +62,24 @@ body{
     margin-top: 1%;
     margin-bottom: 1%;
     }
+    .caja-producto:hover img{
+        width: 101%;
+    }
 }
 @media only screen and (min-width: 480px){
     .caja-producto{
         width: 31.2%;
     }
+    .caja-producto:hover img{
+        width: 101%;
+    }
 }
 @media only screen and (min-width: 800px){
     .caja-producto{
         width: 22.85%;
+    }
+    .caja-producto:hover img{
+        width: 101%;
     }
 }
 @media only screen and (min-width: 1000px){
@@ -153,6 +185,10 @@ main{
 }
 main .logoSuperior a img{
     margin:auto;
+    width: 100px;
+}
+main .logoSuperior a{
+    width: 100%;
 }
 
 
@@ -373,6 +409,7 @@ article{
 
 /*ARTICULOS*/
 .caja-productos{
+    margin-top: 15px !important;
     width: 100%;
     padding-right: 0.2%;
     padding-left: 0.2%;

@@ -2,7 +2,11 @@ let db = require('../database/models')
 
 const indexController = {
     inicio: function(req, res){   
-        db.Producto.findAll()
+        db.Producto.findAll(
+            {
+                include:['imagenes']
+            }
+        )
         .then(productos =>{
             res.render('principales/index',{productos})
         })

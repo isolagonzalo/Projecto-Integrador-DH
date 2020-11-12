@@ -13,27 +13,18 @@ module.exports = function(sequelize,dataTypes){
         precio:{
             type : dataTypes.DOUBLE
         },
-        descripcion:{
-            type : dataTypes.TEXT
-        },
         cantidad:{
             type : dataTypes.INTEGER
         },
         descuento:{
             type : dataTypes.DOUBLE
         },
-        categoria_id:{
-            type : dataTypes.INTEGER
+        categoria:{
+            type : dataTypes.STRING
         },
         talle_id:{
             type : dataTypes.INTEGER
         },
-        color_id:{
-            type : dataTypes.INTEGER
-        },
-        imagen:{
-            type : dataTypes.STRING
-        }
     }
     let config ={
         tableName : 'productos',
@@ -45,7 +36,7 @@ module.exports = function(sequelize,dataTypes){
     Producto.hasMany(
         models.Imagen,
         {
-            as : 'imgs',
+            as : 'imagenes',
             foreignKey: 'producto_id'     
         }
         )

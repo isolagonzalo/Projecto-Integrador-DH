@@ -2,7 +2,10 @@ let db = require('../database/models')
 
 const produtosController = {
     productos:(req,res)=>{
-        db.Producto.findAll()
+        db.Producto.findAll(
+            {
+            include: ['imagenes']
+            })
         .then(productos =>{
             res.render('productos/productos',{productos})
         })
@@ -15,21 +18,25 @@ const produtosController = {
         db.Producto.create({
             nombre: req.body.nombre,
             precio: req.body.precio,
-            descripcion : req.body.descripcion,
             cantidad : req.body.cantidad,
             descuento : req.body.descuento,
-            categoria_id : req.body.categoria_id,
+            categoria : req.body.categoria,
             talle_id : req.body.talle_id,
-            color_id : req.body.color_id,
-            imagen : req.files[0].filename
         })
-        .then(function(){
+        .then(function(e){
+            console.log(e);
+            for(let i=0; i< req.files.length; i++){
+                db.Imagen.create({
+                    imagen:req.files[i].filename,
+                    producto_id:e.id
+                })
+            }
             res.redirect('/productos')
         })
     },
     detalle:(req,res)=>{
         db.Producto.findByPk(req.params.id,{
-            include:['imgs']
+            include:['imagenes']
         })
         .then(producto=>{
             res.render('productos/detalle',{producto:producto}) 

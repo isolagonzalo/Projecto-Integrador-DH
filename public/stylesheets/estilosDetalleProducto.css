@@ -1,0 +1,38 @@
+.container3{
+    width: 100%;
+    height: 440px;
+    border-radius: 0% !important;
+}
+.container3 div div{
+    padding: 0 !important;
+    left: auto !important;
+    border-radius: 0% !important;
+}
+.container3 div div div{
+    height: 440px !important;
+    left: auto !important;
+    border-radius: 0% !important;
+}
+.container3 div div div div{
+    height: 420px !important;
+    left: auto !important;
+    border-radius: 0% !important;
+}
+.container3 div div div div img{
+    width: 90% !important;
+    height: auto !important;
+    left: auto !important;
+    top: 25px !important; 
+    border-radius: 0% !important;
+}
+.carousel-item{
+    width: 100%;
+    height: 100%;
+}
+.img-producto{
+    width: 100px;
+    height: auto;
+}
+.indicators{
+    bottom: -7px!important;
+}

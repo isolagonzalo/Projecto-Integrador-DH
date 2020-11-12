@@ -25,12 +25,6 @@
             <p class="p-errores" id="parrafo-precio"></p>
         </div>
         <br id="br-precio">
-        <label for="nombre">Ingrese la Descripcion</label>
-        <input type="text" name="descripcion" id="descripcion" class="input-crear">
-        <div class="error descripcion" id="div-descripcion">
-            <p class="p-errores" id="parrafo-descripcion"></p>
-        </div>
-        <br id="br-descripcion">
         <label for="nombre">Ingrese la cantidad</label>
         <input type="number" name="cantidad" id="cantidad" class="input-crear">
         <div class="error cantidad" id="div-cantidad">
@@ -43,24 +37,33 @@
             <p class="p-errores" id="parrafo-descuento"></p>
         </div>
         <br id="br-descuento">
-        <label for="nombre">Ingrese la categoria</label>
-        <input type="number" name="categoria_id" id="categoria" class="input-crear">
-        <div class="error categoria" id="div-categoria">
+        <label for="categoria">Elija una categoria</label>
+        <select style="display: block;" name="categoria" id="categoria" class="input-crear select-input">
+            <option value="" selected>SELECIONE UNA CATEGORIA</option>
+            <option value="remera">REMERA</option> 
+            <option value="camisa">CAMISA</option> 
+            <option value="campera">CAMPERA</option>
+            <option value="buzo">BUZO</option>
+            <option value="saco">SACO</option>
+            <option value="chaleco">CHALECO</option>
+            <option value="musculosa">MUSCULOSA</option>
+            <option value="jean">JEAN</option>
+            <option value="bermuda">BERMUDA</option>
+            <option value="pantalon">PANTALON</option>
+            <option value="shot de baño">SHORT DE BAÑO</option>
+            <option value="ropa interior">ROPA INTERIOR</option>
+            <option value="calzado">CALZADO</option>
+          </select>
+          <div class="error categoria" id="div-categoria">
             <p class="p-errores" id="parrafo-categoria"></p>
         </div>
-        <br id="br-categoria">
+        <br style="display: none;" id="br-categoria">
         <label for="nombre">Ingrese el talle</label>
         <input type="number" name="talle_id" id="talle" class="input-crear">
         <div class="error talle" id="div-talle">
             <p class="p-errores" id="parrafo-talle"></p>
         </div>
         <br id="br-talle">
-        <label for="nombre">Ingrese el color</label>
-        <input type="number" name="color_id" id="color" class="input-crear">
-        <div class="error color" id="div-color">
-            <p class="p-errores" id="parrafo-color"></p>
-        </div>
-        <br id="br-color">
         <label for="imagen">Carga la imagen "Principal"</label>
         <BR></BR>
             <div class="botones-input-file" id="primer-button">Subir imagen <i class="fas fa-file-upload"></i>

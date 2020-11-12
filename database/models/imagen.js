@@ -15,7 +15,7 @@ module.exports = function(sequelize,dataTypes){
         }
     }
     let config ={
-        tableName : 'imgs',
+        tableName : 'imagenes',
         timestamps: false
     }
 

@@ -1,46 +1,109 @@
-h1{
-    text-align: center;
-    font-size: 27px;
-    margin-top: 0;
-}
 .detalleProducto{
-    width: 95%;
+    width: 100%;
     height: auto;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
     margin: auto;
     margin-bottom: 20px;
 }
+
 .detalleProducto div img{
-    width: auto;
-    height: 480x;
-    border-radius: 20px;
+    width: 85%;
+    border-radius: 2px;
+    box-shadow: 0px 0px 12px rgb(92, 91, 91);
 }
 .detalleProducto div{
-    width: 45%;
+    width: 100%;
 }
 .detalleProducto div p{
     margin:10px;
 }
 .cajaDeImagen{
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    margin-left: 30px;
+    
+}
+.cajaDeImagen img{
+    width: 10%;
+}
+.datos-detalle-producto{
+    width: 45%;
+}
+.imagen-mediosDePago{
+    width: 100%;
+}
+.imagen-mediosDePago img{
+    width: 100%;
 }
 .detalleProducto div .mediosDePagoImagen{
-    width: 250px;
+    width:140px;
     height: auto;
 }
 .boton-comprar-detalle{
     background-color: black;
     border-radius: 5px;
-    width: 180px;
+    width: 90%;
     height: 50px;
     color: blanchedalmond; 
 }
 .boton-comprar-detalle:hover{
-    background-color: rgb(54, 54, 54);
+    background-color: rgb(80, 79, 79);
+}
+.titulo-producto{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 7px;
+    background: url('/images/logos/fondoTituloFinal.jgp.jpg');
+    background-size: cover;
+    vertical-align: center;
+    box-shadow: 0px 0px 12px rgb(133, 60, 60);
+    opacity: 0.8;
+}
+h1{
+    margin: 0;
+    color: rgb(214, 212, 212);
+    font-family: 'Syne mono',monospace;
+    
+ }
+@media (min-width: 400px){
+    section{
+        width: 100%;
+    }
+    .cajaDeImagen{
+        width: 200px;
+    }
+    .cajaDeImagen img{
+        width: 90%;
+    }
+}
+.nav-detalle-producto{
+    padding-left: 20px;
+    color: black !important;
+    font-size: 16px;
+}
+.nav-detalle-producto a{
+    color: black;
+    text-decoration: none;
+    padding-left: 5px;
+}
+.hr-detalle-producto{
+    width: 90%;
+    margin-top: -4px;
+}
+.nav-detalle-producto a:hover{
+    border-radius: 8px;
+    background-color: rgb(32, 32, 32);
+    color: rgb(134, 134, 134);
+    text-decoration: none;
+    padding-left: 5px;
 }

@@ -1,0 +1,41 @@
+.headroom {
+    transition: transform .5s ease;
+}
+
+.headroom--top{
+    transform: translateY(-0%);
+}
+
+.headroom--not-top{
+    transform: translateY(-64%);
+}
+
+section.headroom {
+    transition: transform .3s ease;
+}
+
+section.headroom--top{
+    transform: translateX(-1000%);
+}
+.section.headroom--pinned{
+    transform: translateX(-20%);
+}
+
+
+section.headroom--not-top{
+    display: block;
+    transform: translateX(0%);
+}
+
+div.headroom {
+    transition: transform .3s ease;
+}
+
+div.headroom--top{
+    transform: translateX(0%);
+}
+
+div.headroom--not-top{
+    margin-left: 48px;
+    transform: translateX(-37%);
+}

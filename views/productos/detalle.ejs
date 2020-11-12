@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head', {title: 'Productos'}) %>
+    <%- include('../partials/headDetalle', {title: 'Productos'}) %>
 <body>
     <%- include('../partials/header') %>
     <link rel="stylesheet" href="/stylesheets/styleDetalle.css">
@@ -9,16 +9,39 @@
         </div>
     </main>
     <section class="seccionDetalleProducto">
-        <h1>Nombre del producto</h1>
+        <div class="nav-detalle-producto">
+            <a href="/">Inicio</a>    /
+            <a href="/productos">Productos </a>    /
+            <a href="/">Categoria </a>
+        </div>
+        <hr class="hr-detalle-producto">
+        <div class="titulo-producto">
+            <h1><%=producto.nombre%></h1>
+        </div>
         <div class="detalleProducto">
             <div class="cajaDeImagen">
-                <img src="/images/imagenesProductos/<%=producto.imgs.imagen%>" alt="">
+                <div class="container3">
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="carousel center-align tamañoCarrusel">
+                                <%for(let i = 0; i < producto.imagenes.length; i++){%>
+
+                                <div class="carousel-item">
+                                    <img class="img-producto" src="/images/imagenesProductos/<%=producto.imagenes[i].imagen%>" alt="">
+                                </div>
+
+                                <%}%>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div>
+            <div class="datos-detalle-producto">
                 <p>nombre producto</p>
                 <p>precio</p>
                 <p>precio 3 cuotas</p>
-                <div>
+                <div class="imagen-mediosDePago">
                     <p>mediosdepago</p>
                     <img class="mediosDePagoImagen" src="/images/logos/medios-pago.png" alt="">
                 </div>
@@ -27,8 +50,8 @@
                 <input type="checkbox">
                 <br>
                 <button class="boton-comprar-detalle">Comprar</button>
-
             </div>
+            
         </div>
     </section>
     <footer>
@@ -67,13 +90,13 @@
             </div>
         </div>
     </footer>
-
+    <a href="https://wa.me/5211234567890?text=Me%20gustaría%20saber%20el%20precio%20del%20coche" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-    <script src="/javascripts/scripts.js"></script>
+    <script src="/javascripts/carruselProducto.js"></script>
     
     <script src="/javascripts/headroom.min.js"></script>
 

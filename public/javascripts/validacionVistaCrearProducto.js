@@ -1,10 +1,10 @@
 let formulario = document.querySelector('.formularioPerris');
+let campoNombre = document.querySelector('#nombre');
 
 formulario.addEventListener('submit', function(e){
     
     let errores = [];
 //validar el nombre
-    let campoNombre = document.querySelector('#nombre');
     let parrafoNombre = document.querySelector('#parrafo-nombre')
     let divNombre = document.querySelector('#div-nombre')
     let brNombre = document.querySelector('#br-nombre')
@@ -28,18 +28,9 @@ formulario.addEventListener('submit', function(e){
         parrafoPrecio.innerHTML ='*-DEBE LLENAR EL CAMPO DE PRECIO'
         errores.push('-Debe poner un precio')
     }
-//validar descripcion
-    
-    let campoDescripcion = document.querySelector('#descripcion');
-
-    let parrafoDescripcion = document.querySelector('#parrafo-descripcion')
-    let divDescripcion = document.querySelector('#div-descripcion')
-    let brDescripcion= document.querySelector('#br-descripcion')
-    if(campoDescripcion.value ==""){
-        brDescripcion.style.display = "none"
-        divDescripcion.style.display = "block"
-        parrafoDescripcion.innerHTML ='*-DEBE LLENAR EL CAMPO DE DESCRIPCION'
-        errores.push('-Debe poner un precio')
+    campoPrecio.addEventListener('click',function(){
+        divPrecio.style.display="none"
+    })
     //validar cantidad
     let campoCantidad = document.querySelector('#cantidad');
 
@@ -52,6 +43,9 @@ formulario.addEventListener('submit', function(e){
         parrafoCantidad.innerHTML ='*-DEBE LLENAR LA CANTIDAD'
         errores.push('-Debe poner una cantidad')
     }
+    campoCantidad.addEventListener('click',function(){
+        divCantidad.style.display="none"
+    })
     //validar descuento
     let campoDescuento= document.querySelector('#descuento');
     
@@ -64,18 +58,25 @@ formulario.addEventListener('submit', function(e){
         parrafoDescuento.innerHTML ='*-DEBE LLENAR EL DESCUENTO'
         errores.push('-Debe poner un descuento')
     }
+    campoDescuento.addEventListener('click',function(){
+        divDescuento.style.display="none"
+    })
     //validar categoria
     let campoCategoria = document.querySelector('#categoria');
     
     let parrafoCategoria = document.querySelector('#parrafo-categoria')
     let divCategoria = document.querySelector('#div-categoria')
     let brCategoria = document.querySelector('#br-categoria')
+    brCategoria.style.display="none"
     if(campoCategoria.value ==""){
         brCategoria.style.display = "none"
         divCategoria.style.display = "block"
-        parrafoCategoria.innerHTML ='*-DEBE LLENAR LA CATEGORIA'
+        parrafoCategoria.innerHTML ='*-DEBE ELEGIR UNA CATEGORIA'
         errores.push('-Debe poner la categoria')
     }
+    campoCategoria.addEventListener('click',function(){
+        divCategoria.style.display="none"
+    })
     //validar talle
     let campoTalle = document.querySelector('#talle');
     
@@ -88,18 +89,9 @@ formulario.addEventListener('submit', function(e){
         parrafoTalle.innerHTML ='*-DEBE PONER EL TALLE'
         errores.push('-Debe poner el talle')
     }
-    //validar color
-    let campoColor = document.querySelector('#color');
-    
-    let parrafoColor = document.querySelector('#parrafo-color')
-    let divColor = document.querySelector('#div-color')
-    let brColor = document.querySelector('#br-color')
-    if(campoColor.value ==""){
-        brColor.style.display = "none"
-        divColor.style.display = "block"
-        parrafoColor.innerHTML ='*-DEBE PONER EL COLOR'
-        errores.push('-Debe poner el color')
-    }
+    campoTalle.addEventListener('click',function(){
+        divTalle.style.display="none"
+    })
     //validar si hay una imagen principal
     
     let imagenPrincipal = document.querySelector('#img-principal');
@@ -112,6 +104,9 @@ formulario.addEventListener('submit', function(e){
         parrafoImagen.innerHTML ='*-DEBE CARGAR AL MENOS LA IMAGEN PRINCIPAL'
         errores.push('-Debe poner la imagen')
     }
+    imagenPrincipal.addEventListener('click',function(){
+        divImagen.style.display="none"
+    })
 
 
 //mostrar errores
@@ -119,7 +114,9 @@ formulario.addEventListener('submit', function(e){
         e.preventDefault();
         let listaErrores = document.querySelector('#total-errores');
         listaErrores.innerHTML = "*--DEBE LLENAR LOS CAMPOS--*"
-        
     }
+    campoNombre.addEventListener('click',function(){
+        errores =""
+    })
 }
-});
+);
