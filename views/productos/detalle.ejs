@@ -38,8 +38,8 @@
                 </div>
             </div>
             <div class="datos-detalle-producto">
-                <p>nombre producto</p>
-                <p>precio</p>
+                <p><%=producto.nombre%></p>
+                <p><%=producto.precio%></p>
                 <p>precio 3 cuotas</p>
                 <div class="imagen-mediosDePago">
                     <p>mediosdepago</p>
@@ -49,7 +49,10 @@
                 <p>Talle</p>
                 <input type="checkbox">
                 <br>
-                <button class="boton-comprar-detalle">Comprar</button>
+                <form action="/productos/detalle/<%=producto.id%>" method="POST">
+                    <input style="display: none;" type="number" name="id" value="<%=producto.id%>">
+                    <button class="boton-comprar-detalle">Añadir al carrito</button>
+                </form>
             </div>
             
         </div>
