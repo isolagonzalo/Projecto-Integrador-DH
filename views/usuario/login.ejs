@@ -10,9 +10,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway:500,600&display=swap" rel="stylesheet">
         
-    <!--Materialize-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    
+  
     <!-- CSS Estilos de Carrusel -->
     <link rel="stylesheet" href="carrusel.css">
     
@@ -112,10 +110,22 @@
         <label for="contraseña">Contraseña</label>
         <input type="password" placeholder="Contraseña" name="contraseña" id="password">
         <br>
-        <div class="errores">
-            <ul>
-
-            </ul>
+        <label for="recordame">Recordame</label>
+        <input type="checkbox">
+        <br>
+        <div class="errores"></div>
+            
+            <% if (typeof errores != "undefined") {
+                console.log(errores)%>
+                 <p style="color: red;">error</p>
+                 <ul>
+                     <% for (let i = 0; i < errores.length; i++) { %>
+                     <li>
+                        <%= errores[i].msg %>
+                     </li>
+                     <%}%>
+                 </ul>
+             <%}%>
         </div>
         <button type="submit">Ingresar</button>
     </form>
@@ -166,6 +176,6 @@
 
     <script src="/javascripts/menu.js"></script>
 
-    <script src="/javascripts/validacionesVista-login.js"></script>
+    <!--<script src="/javascripts/validacionesVista-login.js"></script>-->
 </body>
 </html>
