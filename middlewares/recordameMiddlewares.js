@@ -1,31 +1,16 @@
+let db = require('../database/models')
 
-
-function recordameMiddlewares(req, res, next) {
-    
-    if (req.session.usuarioLogueado == undefined && req.cookies.recordame != undefined){
-        let usuarios = db.usuario
-            let usuarioALoguearse
-
-
-            for (var i = 0 ; i < usuarios.length ; i ++){
-                if (usuarios[i].email == req.cookies.recordame){
-                    
-                        usuarioALoguearse = usuarios[i];
-                        break;
-                    
-                }
+function recordarUsuarioMiddleware (req,res,next){
+    if(req.cookies.recordame != undefined && req.session.usuarioLogueado == undefined){
+        db.Usuario.findOne(
+            {
+                where:{email:req.cookies.recordame}
             }
-        
-            for (var i = 0 ; i < usuarios.length ; i ++){
-                if (usuarios[i].contrasenia == req.cookies.recordameContraseña){
-                    
-                        usuarioALoguearse = usuarios[i];
-                        break;
-                    
-                }
-            };
-            req.session.usuarioLogueado = usuarioALoguearse;
+        )
+        .then(usuarioEncontrado=>{
+            req.session.usuarioLogueado = usuarioEncontrado
+        })
     }
+    next()
 }
-
-module.exports = recordameMiddlewares
+module.exports=recordarUsuarioMiddleware;

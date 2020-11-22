@@ -32,6 +32,25 @@
 
             </ul>
         </div>
+        <%if(typeof errorContrasenias != 'undefined') { %>
+            <p>
+                <ul>
+                    <li>
+                        <%=errorContrasenias%>
+                    </li>
+                </ul>
+            </p>
+       <% } %>
+
+        <%if(typeof errors != 'undefined') { %>
+             <p>
+                 <ul>
+                     <%for(let i = 0; i < errors.length; i++){%>
+                        <li style="color: red;"><%=errors[i].msg%></li>
+                     <% } %>
+                 </ul>
+             </p>
+        <% } %>
         <button type="submit">Crear cuenta</button>
     </form>
     <footer>

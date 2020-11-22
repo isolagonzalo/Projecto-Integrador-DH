@@ -43,8 +43,14 @@
         <input type="text" placeholder="Buscar">
     </div>
     <div class="menuSuperiorDerecho">
-        <a href="/users/registro">Crear Cuenta</a>
-        <a href="/users/login">Iniciar Sesion</a>
+        <%if(typeof usuario == 'undefined'){%>
+            <a href="/users/registro">Crear Cuenta</a>
+            <a href="/users/login">Iniciar Sesion</a>
+        <%}else{%>
+            <a href="/users/registro">Mi Cuenta</a>
+            <a href="/users/login">Iniciar Sesion</a>
+        <%}%>
+        
 </div>
 </div class="navegacionMenuInferior">
      <ul class="listaNavegacion">

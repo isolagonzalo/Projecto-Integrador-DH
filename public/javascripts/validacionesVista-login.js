@@ -1,8 +1,9 @@
 let formulario = document.querySelector('.formularioPerris');
 
 formulario.addEventListener('submit', function(e){
-    e.preventDefault();
+    
     let errores = [];
+
 //validar el e-mail
     let campoEmail = document.querySelector('#email');
 
@@ -16,7 +17,6 @@ formulario.addEventListener('submit', function(e){
         errores.push('-Debe poner una contraseña')
     }
 
-//mostras errores
     if(errores.length>0){
         e.preventDefault();
         let listaErrores = document.querySelector('div.errores ul');

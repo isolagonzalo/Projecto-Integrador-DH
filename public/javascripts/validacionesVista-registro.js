@@ -1,5 +1,4 @@
 let formulario = document.querySelector('.formularioPerris');
-formulario.style.display= ''
 
 formulario.addEventListener('submit', function(e){
     

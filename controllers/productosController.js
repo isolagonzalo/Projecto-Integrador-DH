@@ -7,7 +7,11 @@ const produtosController = {
             include: ['imagenes']
             })
         .then(productos =>{
-            res.render('productos/productos',{productos})
+            if(req.session.usuarioLogueado != undefined){
+                res.render('productos/productos',{usuario : req.session.usuarioLogueado , productos});
+            }else{
+                res.render('productos/productos',{productos})
+            }
         })
     },
     crear:(req,res)=>{

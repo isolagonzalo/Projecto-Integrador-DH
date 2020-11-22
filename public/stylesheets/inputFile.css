@@ -74,3 +74,9 @@ button{
     width: 40px !important;
     margin-left: 20px;
 }
+.input-recordar{
+    display: block !important;
+    opacity: 1 !important;
+    position: relative !important;
+    pointer-events: all !important;
+}

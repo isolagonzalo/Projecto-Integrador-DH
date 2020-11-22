@@ -8,7 +8,9 @@ let session = require('express-session')
 var indexRouter = require('./routes/index');
 var productosRouter = require('./routes/productos');
 var usersRouter = require('./routes/users');
-var recordameMiddlewares = require('./middlewares/recordameMiddlewares');
+const productsApiRouter = require('./routes/api/productosApiRouter') //Rutas de api
+const usuariosApiRouter = require('./routes/api/usuariosApiRouter') //Rutas de api
+var recordameMiddlewares = require('./middlewares/recordameMiddlewares')
 
 var app = express();
 
@@ -26,10 +28,14 @@ app.use(session({
   resave : false,
   saveUninitialized : false
 }));
+app.use(recordameMiddlewares);
 
 app.use('/', indexRouter);
 app.use('/productos', productosRouter);
 app.use('/users', usersRouter);
+app.use('/api', productsApiRouter);
+app.use('/api', usuariosApiRouter);
+
 
 
 

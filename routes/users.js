@@ -4,13 +4,23 @@ var router = express.Router();
 var usersController = require('../controllers/usersController');
 let {check, validationResult, body}= require('express-validator')
 let guestMiddlewares = require('../middlewares/guestMiddlewares');
-
-
+let db = require('../database/models')
+let bcrypt = require('bcrypt')
 /* LOGIN */
-router.get('/login',usersController.login);
+router.get('/login',guestMiddlewares,usersController.login);
 router.post('/login', [
     check("email").isEmail().withMessage("el email tiene que ser valido"),
-    check("contraseña").isLength({min:8}).withMessage("la contra es muy corta")
+    check("contrasenia").isLength({min:6}).withMessage("la contraseña debe tener al menos 6 caracteres"),
+    body('email').custom(async (email) => {
+      const existingUser = await db.Usuario.findOne({ where: {email :email}})
+      .then(function(user){
+         return user });
+      if (existingUser) {
+        console.log('holis');
+      }else{
+        throw new Error('Email no existe')
+      }
+    })
 ] , usersController.postLogin);
 
 router.get('/prueba',function(red, res){
@@ -22,7 +32,19 @@ router.get('/prueba',function(red, res){
     })
 });
 //REGISTRO
-router.get('/registro', usersController.registro);
-router.post('/registro',guestMiddlewares,usersController.usuarioResgistrado);
+router.get('/registro',guestMiddlewares,usersController.registro);
+router.post('/registro',[
+  check('nombre').isLength({min:1}).withMessage('debe poner un nombre'),
+  check('email').isEmail().withMessage('el email debe ser un email valido'),
+  check('contrasenia').isLength({min:6}).withMessage('la contraseña debe tener al menos 6 caracteres'),
+  check('rePassword').isLength({min:1}).withMessage('las contraseñas no coinciden'),
+  body('email').custom(async (email) => {
+    const existingUser = await db.Usuario.findOne({ where: {email :email}})
+    .then(function(user){ return user });
+    if (existingUser) {
+      throw new Error('--Email existente--')
+    }
+  })
+],usersController.usuarioResgistrado);
 
 module.exports = router;
