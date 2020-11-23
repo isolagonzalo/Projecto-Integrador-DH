@@ -37,6 +37,12 @@ const indexController = {
         }else{
             res.render('principales/carrito')
         }
+    },
+    cerrarSesion:(req,res,next)=>{
+        if(req.session.usuarioLogueado != undefined){
+            req.session.usuarioLogueado = undefined
+            res.redirect('/')
+        }
     }
 }
 module.exports= indexController;

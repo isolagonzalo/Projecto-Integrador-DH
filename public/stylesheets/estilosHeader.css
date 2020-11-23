@@ -1,5 +1,28 @@
 /*EFECTOS DEL MENU O HEADER*/
 
+.caja-boton-crear-producto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.a-producto{
+    width: 200px;
+    height: 50px;
+    background-color: rgb(126, 125, 125);
+    border-radius: 5px;
+    color: white;
+}
+.b-producto{
+    width: 200px;
+    height: 50px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 5px;
+    color: white;
+}
+.b-producto:hover{
+    background-color: rgb(75, 74, 74);
+}
 .headroom {
     transition: transform .5s ease;
 }

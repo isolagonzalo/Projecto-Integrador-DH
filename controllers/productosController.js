@@ -10,12 +10,17 @@ const produtosController = {
             if(req.session.usuarioLogueado != undefined){
                 res.render('productos/productos',{usuario : req.session.usuarioLogueado , productos});
             }else{
-                res.render('productos/productos',{productos})
+                let usuario;
+                res.render('productos/productos',{productos,usuario:usuario})
             }
         })
     },
     crear:(req,res)=>{
-        res.render('productos/crear')
+        if(req.session.usuarioLogueado != undefined){
+            res.render('productos/crear',{usuario : req.session.usuarioLogueado});
+        }else{
+            res.render('productos/crear')
+        }
     },
     guardar:(req,res,next)=>{
         db.Producto.create({
@@ -43,7 +48,12 @@ const produtosController = {
             include:['imagenes']
         })
         .then(producto=>{
-            res.render('productos/detalle',{producto:producto}) 
+            if(req.session.usuarioLogueado != undefined){
+                res.render('productos/detalle',{usuario : req.session.usuarioLogueado ,producto:producto});
+            }else{
+                res.render('productos/detalle',{producto:producto}) 
+            }
+            
         })   
     },
     agregarCarrito:(req,res)=>{
@@ -73,7 +83,11 @@ const produtosController = {
                     producto.categoria = 'Todas las Remeras'
                 }
             }
-            res.render('productos/categoria',{producto})
+            if(req.session.usuarioLogueado != undefined){
+                res.render('productos/categoria',{usuario : req.session.usuarioLogueado ,producto});
+            }else{
+                res.render('productos/categoria',{producto})
+            }
         })
         .catch(error => res.send(error))
     },
@@ -90,7 +104,11 @@ const produtosController = {
                     producto.categoria = 'Todas las Camisas'
                 }
             }
-            res.render('productos/categoria',{producto})
+            if(req.session.usuarioLogueado != undefined){
+                res.render('productos/categoria',{usuario : req.session.usuarioLogueado ,producto});
+            }else{
+                res.render('productos/categoria',{producto})
+            }
         })
         .catch(error => res.send(error))
     },
@@ -107,7 +125,11 @@ const produtosController = {
                     producto.categoria = 'Todas las Camperas'
                 }
             }
-            res.render('productos/categoria',{producto})
+            if(req.session.usuarioLogueado != undefined){
+                res.render('productos/categoria',{usuario : req.session.usuarioLogueado ,producto});
+            }else{
+                res.render('productos/categoria',{producto})
+            }
         })
         .catch(error => res.send(error))
     },
@@ -124,7 +146,11 @@ const produtosController = {
                     producto.categoria = 'Todas los Buzos'
                 }
             }
-            res.render('productos/categoria',{producto})
+            if(req.session.usuarioLogueado != undefined){
+                res.render('productos/categoria',{usuario : req.session.usuarioLogueado ,producto});
+            }else{
+                res.render('productos/categoria',{producto})
+            }
         })
         .catch(error => res.send(error))
     },
@@ -141,7 +167,11 @@ const produtosController = {
                     producto.categoria = 'Todas los Conjuntos'
                 }
             }
-            res.render('productos/categoria',{producto})
+            if(req.session.usuarioLogueado != undefined){
+                res.render('productos/categoria',{usuario : req.session.usuarioLogueado ,producto});
+            }else{
+                res.render('productos/categoria',{producto})
+            }
         })
         .catch(error => res.send(error))
     },
@@ -158,7 +188,11 @@ const produtosController = {
                     producto.categoria = 'Todas los Sacos y trajes'
                 }
             }
-            res.render('productos/categoria',{producto})
+            if(req.session.usuarioLogueado != undefined){
+                res.render('productos/categoria',{usuario : req.session.usuarioLogueado ,producto});
+            }else{
+                res.render('productos/categoria',{producto})
+            }
         })
         .catch(error => res.send(error))
     },
@@ -175,7 +209,11 @@ const produtosController = {
                     producto.categoria = 'Todas los Chalecos'
                 }
             }
-            res.render('productos/categoria',{producto})
+            if(req.session.usuarioLogueado != undefined){
+                res.render('productos/categoria',{usuario : req.session.usuarioLogueado ,producto});
+            }else{
+                res.render('productos/categoria',{producto})
+            }
         })
         .catch(error => res.send(error))
     },
@@ -192,7 +230,11 @@ const produtosController = {
                     producto.categoria = 'Todas las Musculosas'
                 }
             }
-            res.render('productos/categoria',{producto})
+            if(req.session.usuarioLogueado != undefined){
+                res.render('productos/categoria',{usuario : req.session.usuarioLogueado ,producto});
+            }else{
+                res.render('productos/categoria',{producto})
+            }
         })
         .catch(error => res.send(error))
     },
@@ -209,7 +251,11 @@ const produtosController = {
                     producto.categoria = 'Todas los Jeans'
                 }
             }
-            res.render('productos/categoria',{producto})
+            if(req.session.usuarioLogueado != undefined){
+                res.render('productos/categoria',{usuario : req.session.usuarioLogueado ,producto});
+            }else{
+                res.render('productos/categoria',{producto})
+            }
         })
         .catch(error => res.send(error))
     },
@@ -226,7 +272,11 @@ const produtosController = {
                     producto.categoria = 'Todas las Bermudas'
                 }
             }
-            res.render('productos/categoria',{producto})
+            if(req.session.usuarioLogueado != undefined){
+                res.render('productos/categoria',{usuario : req.session.usuarioLogueado ,producto});
+            }else{
+                res.render('productos/categoria',{producto})
+            }
         })
         .catch(error => res.send(error))
     },
@@ -243,7 +293,11 @@ const produtosController = {
                     producto.categoria = 'Todas los Pantalones'
                 }
             }
-            res.render('productos/categoria',{producto})
+            if(req.session.usuarioLogueado != undefined){
+                res.render('productos/categoria',{usuario : req.session.usuarioLogueado ,producto});
+            }else{
+                res.render('productos/categoria',{producto})
+            }
         })
         .catch(error => res.send(error))
     },
@@ -260,7 +314,11 @@ const produtosController = {
                     producto.categoria = 'Todas las Mallas y ropa de baño'
                 }
             }
-            res.render('productos/categoria',{producto})
+            if(req.session.usuarioLogueado != undefined){
+                res.render('productos/categoria',{usuario : req.session.usuarioLogueado ,producto});
+            }else{
+                res.render('productos/categoria',{producto})
+            }
         })
         .catch(error => res.send(error))
     },
@@ -277,7 +335,11 @@ const produtosController = {
                     producto.categoria = 'short de baño'
                 }
             }
-            res.render('productos/categoria',{producto})
+            if(req.session.usuarioLogueado != undefined){
+                res.render('productos/categoria',{usuario : req.session.usuarioLogueado ,producto});
+            }else{
+                res.render('productos/categoria',{producto})
+            }
         })
         .catch(error => res.send(error))
     },
@@ -294,7 +356,11 @@ const produtosController = {
                     producto.categoria = 'Todos los Calzados'
                 }
             }
-            res.render('productos/categoria',{producto})
+            if(req.session.usuarioLogueado != undefined){
+                res.render('productos/categoria',{usuario : req.session.usuarioLogueado ,producto});
+            }else{
+                res.render('productos/categoria',{producto})
+            }
         })
         .catch(error => res.send(error))
     }

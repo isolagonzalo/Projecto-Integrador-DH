@@ -1,0 +1,88 @@
+.datos {
+     display: flex;
+     justify-content: center;
+     flex-direction: column;
+     align-items: center;
+     
+     width: 400px;
+     padding: 3px 10px;
+     border: rgba(66, 66, 66, 0.404) 5px dashed;
+     border-top-left-radius: 20px;
+     border-bottom-right-radius: 20px;
+     padding: 20px;
+}
+.datos p { 
+     margin-bottom: 10px;
+     margin-top: 0px;
+     
+}
+.centrarPerfil{
+     display: flex;
+     justify-content: center;
+     margin-bottom: 10px;
+     
+}
+.perfil {
+     margin: auto;
+     width: 35%;
+     min-width: 100px;
+     height: auto;
+     opacity: 0.7;  
+}
+.caja-imagen-perfil{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+
+.miCuenta {
+     margin-left: 20%;
+     margin-right: 20%;
+
+     margin-bottom: 5rem;
+     
+}
+.miCuenta h2{
+     font-size: 2.5rem;
+}
+.miCuenta h5{
+     color: black;
+     font-size: 1.5rem;
+}
+.boton{
+  background-color: rgb(41, 40, 40); 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  justify-content: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.boton-eliminar{
+     background-color: rgba(248, 27, 27, 0.7); 
+     border: none;
+     color: white;
+     padding: 15px 32px;
+     text-align: center;
+     justify-content: center;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 16px;
+   }
+
+@media only screen and (max-width: 420px){
+     .tabla {
+          display: none !important;
+     }
+     
+}
+@media only screen and (max-width: 720px){
+     .miCuenta {
+          margin-left: 10%;
+          margin-right: 10%;
+     }
+}
+

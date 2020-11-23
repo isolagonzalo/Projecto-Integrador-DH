@@ -113,6 +113,15 @@
     </main>
     <section>
         <h2 class="productosDestacados">Productos Destacados</h2>
+                <%if(typeof usuario == 'undefined'){%>
+                    <div style="display: none;">
+                        holis
+                    </div>
+                <%}else if(usuario.tipo == 'admin'){%>
+                    <div class="caja-boton-crear-producto">
+                        <a href="/productos/crear" class="a-producto"><button class="b-producto">Crear un Producto</button></a>
+                    </div>
+                <%}%>
         <div class="caja-productos">
             <% for(var i = 0; i < productos.length; i++){ %>
                     <article class="caja-producto"> 
@@ -132,8 +141,6 @@
             <% } %>
         </div>  
     </section>
-    <a href="/productos/crear"><Button>Crear Producto</Button></a>
-
 
     <footer>
         <div class="container">

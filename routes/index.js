@@ -10,5 +10,7 @@ router.get('/comoComprar',indexController.comoComprar)
 router.get('/contacto',indexController.contacto)
 //Carrito
 router.get('/carrito',indexController.carrito)
+//Cerrar sesion 
+router.get('/cerrar',indexController.cerrarSesion)
 
 module.exports = router;

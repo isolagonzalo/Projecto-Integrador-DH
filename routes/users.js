@@ -47,4 +47,9 @@ router.post('/registro',[
   })
 ],usersController.usuarioResgistrado);
 
+//PERFIL DEL USUARIO
+
+router.get('/perfil/:id',usersController.perfil)
+router.post('/perfil/:id',usersController.actualizarPerfil)
+
 module.exports = router;

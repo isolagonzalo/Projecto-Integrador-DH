@@ -10,9 +10,6 @@ module.exports = function(sequelize,dataTypes){
         nombre:{
             type : dataTypes.STRING
         },
-        apellido:{
-            type : dataTypes.STRING
-        },
         email:{
             type : dataTypes.STRING
         },
@@ -20,12 +17,12 @@ module.exports = function(sequelize,dataTypes){
             type : dataTypes.STRING
         },
         telefono:{
-            type : dataTypes.INTEGER
+            type : dataTypes.DOUBLE
         },
-        direccion_id:{
-            type : dataTypes.INTEGER
+        direccion:{
+            type : dataTypes.STRING
         },
-        avatar:{
+        tipo:{
             type : dataTypes.STRING
         }
     }

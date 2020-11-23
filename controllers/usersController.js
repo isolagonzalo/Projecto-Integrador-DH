@@ -47,7 +47,8 @@ const userController = {
                     nombre: req.body.nombre,
                     apellido: req.body.apellido,
                     email : req.body.email,
-                    contrasenia : passEncriptada
+                    contrasenia : passEncriptada,
+                    tipo : 'usuario'
                 })
                 .then(function(){
                     res.redirect('/users/login')
@@ -58,43 +59,28 @@ const userController = {
         }else{
             res.render('usuario/registro',{errorContrasenias:contraseñas_invalidas})
         }
+    },
+    perfil:(req,res,next)=>{
+        db.Usuario.findByPk(req.params.id)
+        .then(usuario=>{
+            res.render('usuario/perfil',{usuario})
+        })
+    },
+    actualizarPerfil:(req,res,next)=>{
+        db.Usuario.update({
+            nombre: req.body.nombre,
+            email: req.body.email,
+            telefono: req.body.telefono,
+            direccion: req.body.direccion
+        },{
+            where:{id:req.params.id}
+        })
+        .then(usuario=>{
+            console.log(req.body);
+            res.redirect('/')
+        })
     }
 }
 module.exports=userController;
-/*let errores = validationResult(req);
-            let usuario = db.Usuario.findAll()
-            
-            if (errores.isEmpty()){
-                
-                var usuarioALoguearse
-                for (var i = 0 ; i < usuario.length ; i ++){
-                    if (usuario[i].email == req.body.email){
-                        if (bcrypt.compareSync(req.body.contraseña , usuario[i].contrasenia)){
-                            var  usuarioALoguearse = usuario[i];
-                            console.log(usuario.findByPk(i).contrasenia)
-                        }
-                    }
-                }
-                
-                
-                if (usuarioALoguearse == undefined){
-                    return res.render('usuario/login', {errores:[{msg : 'credenciales invalidas'}]});
-                };
-                console.log(usuarioALoguearse)
-                req.session.usuarioLogueado = usuarioALoguearse;
-                res.redirect('/');
-                // EMAIL COOKIES
-                /*
-                if (usuarioALoguearse != undefined){
-                    res.cookie('recordame', usuarioLoguearse.email, { maxAge :  60000} )
-                }
-                
-                // CONTRASEÑA COOKIES
-                if (req.body.recordame != undefined){
-                    res.cookie('recordameContraseña', usuarioLoguearse.contraseña, { maxAge :  60000} )
-                }
-                
-            }else{
-                
-                return res.render('usuario/login',{errores : errores})
-            } */
+
+      
