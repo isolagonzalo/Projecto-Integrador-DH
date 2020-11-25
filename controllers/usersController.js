@@ -5,8 +5,12 @@ let {check, validationResult, body}= require('express-validator')
 
 const userController = {
     login:(req,res)=>{
+        if(req.session.usuarioLogueado != undefined){
+            res.render('usuario/login',{usuario:usuarioLogueado})
+        }else{
+            res.render('usuario/login')
+        }
         
-        res.render('usuario/login')
     },
     
     postLogin:(req,res)=>{
@@ -77,6 +81,17 @@ const userController = {
         })
         .then(usuario=>{
             console.log(req.body);
+            res.redirect('/')
+        })
+    },
+    eliminarCuenta:(req,res)=>{
+        db.Usuario.destroy(
+            {
+                where:{id:req.params.id}
+            }
+        )
+        .then(usuario=>{
+            req.session.usuarioLogueado = undefined
             res.redirect('/')
         })
     }

@@ -5,13 +5,20 @@ const produtosController = {
         db.Producto.findAll(
             {
             include: ['imagenes']
-            })
+            },
+            )
         .then(productos =>{
+            let producto = [];
+            for(var i = 0; i < productos.length; i++){
+                if(productos[i].estado === 'activo'){
+                    producto.push(productos[i])
+                }
+            }
             if(req.session.usuarioLogueado != undefined){
-                res.render('productos/productos',{usuario : req.session.usuarioLogueado , productos});
+                res.render('productos/productos',{usuario : req.session.usuarioLogueado , productos:producto});
             }else{
                 let usuario;
-                res.render('productos/productos',{productos,usuario:usuario})
+                res.render('productos/productos',{productos:producto,usuario:usuario})
             }
         })
     },
@@ -30,6 +37,7 @@ const produtosController = {
             descuento : req.body.descuento,
             categoria : req.body.categoria,
             talle_id : req.body.talle_id,
+            estado: 'activo'
         })
         .then(function(e){
             console.log(e);
@@ -38,9 +46,8 @@ const produtosController = {
                     imagen:req.files[i].filename,
                     producto_id:e.id
             })
-            ////
-            }
-            res.redirect('/productos/')
+        }
+            res.redirect('/') 
         })
     },
     detalle:(req,res)=>{
@@ -56,14 +63,60 @@ const produtosController = {
             
         })   
     },
-    agregarCarrito:(req,res)=>{
-        db.Producto.findByPk(req.body.id,{
-            include:['imagenes']
-        })
+    producto:(req,res)=>{
+        db.Producto.findByPk(req.params.id,{
+            include: ['imagenes']
+            })
         .then(producto=>{
-            res.render('principales/carrito',{producto:producto}) 
-        })   
+            res.render('productos/editar',{producto})
+        })
     },
+    editar:(req,res)=>{
+        db.Producto.update(
+            {
+                nombre: req.body.nombre,
+                precio: req.body.precio,
+                cantidad : req.body.cantidad,
+                descuento : req.body.descuento,
+                categoria : req.body.categoria,
+                talle_id : req.body.talle_id,
+            },
+            {
+                where:{id:req.params.id}
+            })
+            .then(function(e){
+                res.redirect('/productos/')
+            })
+    },
+    //ELIMINAR PRODUCTO
+
+    eliminar:(req,res,next)=>{
+        db.Producto.update(
+            {
+                estado: 'inactivo'
+            },
+            {
+                where:{id:req.params.id}
+            })
+            .then(function(e){
+                res.redirect('/productos/')
+            })
+    },
+    //CARRITO 
+    agregarCarrito:(req,res)=>{
+        db.Carrito.create({
+            estado: 'abierto',
+            usuario_id: req.body.usuario_id
+        })
+        .then(carrito=>{
+            db.Carrito_producto.create({
+                carrito_id: carrito.id,
+                producto_id: req.params.id
+            })
+            res.redirect('/')
+        })
+    },
+
 
 
 

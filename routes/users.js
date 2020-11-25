@@ -52,4 +52,8 @@ router.post('/registro',[
 router.get('/perfil/:id',usersController.perfil)
 router.post('/perfil/:id',usersController.actualizarPerfil)
 
+//ELIMINAR UN USUARIO
+
+router.get('/eliminar/:id',usersController.eliminarCuenta)
+
 module.exports = router;

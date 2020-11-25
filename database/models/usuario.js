@@ -32,8 +32,16 @@ module.exports = function(sequelize,dataTypes){
         timestamps: false
     }
 
-    let usuarios = sequelize.define(alias,cols,config);
-
-    return usuarios
+    let Usuario = sequelize.define(alias,cols,config);
+    Usuario.associate = function(models){
+    Usuario.hasMany(
+        models.Carrito, 
+        {
+            as : 'carrito',
+            foreignKey: 'usuario_id'     
+        }
+        )
+    }
+    return Usuario
 
 }

@@ -8,12 +8,17 @@ const indexController = {
             }
         )
         .then(productos =>{
-            if(req.session.usuarioLogueado != undefined){
-                res.render('principales/index',{usuario : req.session.usuarioLogueado , productos});
-            }else{
-                res.render('principales/index',{productos})
+            let producto = [];
+            for(var i = 0; i < productos.length; i++){
+                if(productos[i].estado === 'activo'){
+                    producto.push(productos[i])
+                }
             }
-
+            if(req.session.usuarioLogueado != undefined){
+                res.render('principales/index',{usuario : req.session.usuarioLogueado , productos:producto});
+            }else{
+                res.render('principales/index',{productos:producto})
+            }
         })
         .catch(error => res.send(error))
     },

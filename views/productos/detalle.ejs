@@ -51,11 +51,27 @@
                 <br>
                 <form action="/productos/detalle/<%=producto.id%>" method="POST">
                     <input style="display: none;" type="number" name="id" value="<%=producto.id%>">
-                    <button class="boton-comprar-detalle">Añadir al carrito</button>
+                    
+                    <div style="display: flex; justify-content: space-around; align-items: center; flex-direction: column;">
+                        <%if(typeof usuario == 'undefined'){%>
+                            <a href="/users/login" class="boton-añadir-producto">Añadir al carrito</a>
+                            <p style="color: red;">Debes estar logeado para comprar</p>
+                        <%}else{%>
+                            <input type="text" value="<%=usuario.id%>" style="display: none;" name="usuario_id">
+                            <button type="submit" class="boton-comprar-detalle">Añadir al carrito</button>
+                        <%}%>
+                        <%if(typeof usuario != 'undefined'){
+                            if(usuario.tipo == 'admin'){%>
+                                <a href="/productos/editar/<%=producto.id%>" class="boton-editar-producto">editar</a>
+                                <a href="/productos/eliminar/<%=producto.id%>" class="boton-eliminar-producto">eliminar</a>
+                            <%}%>
+                        <%}%>
+                    </div>
                 </form>
             </div>
             
         </div>
+        
     </section>
     <footer>
         <div class="container">

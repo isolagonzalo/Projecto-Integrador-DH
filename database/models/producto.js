@@ -25,6 +25,9 @@ module.exports = function(sequelize,dataTypes){
         talle_id:{
             type : dataTypes.INTEGER
         },
+        estado:{
+            type : dataTypes.STRING
+        }
     }
     let config ={
         tableName : 'productos',
@@ -38,6 +41,13 @@ module.exports = function(sequelize,dataTypes){
         {
             as : 'imagenes',
             foreignKey: 'producto_id'     
+        }
+        ),
+    Producto.hasMany(
+        models.Carrito_producto,
+        {
+            as : 'producto_carrito',
+            foreignKey : 'producto_id'
         }
         )
     }

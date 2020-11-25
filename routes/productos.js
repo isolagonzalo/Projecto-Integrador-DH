@@ -2,6 +2,7 @@ var express = require('express');
 const { route } = require('.');
 var router = express.Router();
 const productosController = require ('../controllers/productosController')
+const carritoController = require ('../controllers/carritoController')
 const multer = require('multer');
 const path = require('path')
 
@@ -16,21 +17,26 @@ var storage = multer.diskStorage({
    
   var upload = multer({ storage: storage })
 
-/* GET home page. */
+/*LISTAR PRODUCTOS*/
 router.get('/',productosController.productos);
+
 // CREAR PRODUCTO 
 router.get('/crear',productosController.crear)
 router.post('/crear',upload.any(),productosController.guardar)
 
-/*
-router.get('/', controller.index )
-*/
-/*detalle de producto*/
-//router.get('/detalle/:id',productosController.detalle)
-
-//
+//DETALLE PRODUCTO
 router.get('/detalle/:id',productosController.detalle) 
 router.post('/detalle/:id',productosController.agregarCarrito) 
+
+//EDITAR PRODUCTO
+
+router.get('/editar/:id',productosController.producto) 
+router.post('/editar/:id',productosController.editar)
+
+//ELIMINAR PRODUCTO
+
+router.get('/eliminar/:id',productosController.eliminar) 
+
 //RUTAS DE CATEGORIAS 
 
 //remeras
