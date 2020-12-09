@@ -1,5 +1,5 @@
 let db = require('../database/models')
-
+let cantidadProductosCarrito = 0;
 const produtosController = {
     productos:(req,res)=>{
         db.Producto.findAll(
@@ -104,10 +104,36 @@ const produtosController = {
     },
     //CARRITO 
     agregarCarrito:(req,res)=>{
-        db.Carrito.create({
-            estado: 'abierto',
-            usuario_id: req.body.usuario_id
+        // tengo el usuario id y el producto id
+        //buscar un carrito abierto del usuario
+        //si existe agregar el producto a ese carrito 
+        // crear un carrito
+        db.Carrito.findOne({where:{estado:'abierto',usuario_id:req.body.usuario_id}})
+        .then(carritoEncontrado => {
+            if(carritoEncontrado != undefined){
+                //meter el producto a ese carrito
+                db.Carrito_producto.create({
+                    carrito_id: carritoEncontrado.id,
+                    producto_id: req.body.producto_id
+                })
+                .then(carritoProductos =>{
+                    res.redirect('/productos/detalle/'+req.body.producto_id)
+                })
+            }else{
+                db.Carrito.create({
+                    estado: 'abierto',
+                    usuario_id: req.body.usuario_id
+                })
+                .then(carritoCreado =>{
+                    db.Carrito_producto.create({
+                        carrito_id: carritoCreado.id,
+                        producto_id: req.body.producto_id
+                    })
+                    res.redirect('/productos/detalle/'+req.body.producto_id)
+                })
+            }
         })
+
         .then(carrito=>{
             db.Carrito_producto.create({
                 carrito_id: carrito.id,

@@ -50,7 +50,7 @@
                 <input type="checkbox">
                 <br>
                 <form action="/productos/detalle/<%=producto.id%>" method="POST">
-                    <input style="display: none;" type="number" name="id" value="<%=producto.id%>">
+                    <input style="display: none;" type="number" name="producto_id" value="<%=producto.id%>">
                     
                     <div style="display: flex; justify-content: space-around; align-items: center; flex-direction: column;">
                         <%if(typeof usuario == 'undefined'){%>
@@ -58,7 +58,7 @@
                             <p style="color: red;">Debes estar logeado para comprar</p>
                         <%}else{%>
                             <input type="text" value="<%=usuario.id%>" style="display: none;" name="usuario_id">
-                            <button type="submit" class="boton-comprar-detalle">Añadir al carrito</button>
+                            <button id="añadir-carrito" type="submit" class="boton-comprar-detalle">Añadir al carrito</button>
                         <%}%>
                         <%if(typeof usuario != 'undefined'){
                             if(usuario.tipo == 'admin'){%>
@@ -122,6 +122,7 @@
     <script src="/javascripts/jquery.min.js"></script>
 
     <script src="/javascripts/menu.js"></script>
+
 
 
 </body>

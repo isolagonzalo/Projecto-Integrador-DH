@@ -21,21 +21,22 @@ module.exports = function(sequelize,dataTypes){
 
     let Carrito_producto = sequelize.define(alias,cols,config);
     Carrito_producto.associate = function(models){
-    Carrito_producto.belongsTo(
-        models.Carrito,
-        {
-            as : 'carrito_producto',
-            foreignKey: 'carrito_id'     
-        }
-        ),
-    Carrito_producto.belongsTo(
-        models.Producto,
-        {
-            as : 'producto_carrito',
-            foreignKey : 'producto_id'
-        }
+        Carrito_producto.belongsTo(
+            models.Producto,
+            {
+                as : 'producto',
+                foreignKey: 'producto_id'     
+            })
+        Carrito_producto.hasMany(
+            models.Imagen,
+            {
+                as : 'img',
+                foreignKey : 'producto_id',
+                sourceKey: 'producto_id'
+            }
+            //targetKey cuando es belongs To 
+            //sourceKey cuando es hasMany
         )
     }
     return Carrito_producto
-
 }

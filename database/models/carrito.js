@@ -26,13 +26,15 @@ module.exports = function(sequelize,dataTypes){
         {
             as : 'carrito',
             foreignKey: 'usuario_id'     
-        }
-        ),
+        })
     Carrito.hasMany(
         models.Carrito_producto,
         {
-            as : 'carrito_producto',
-            foreignKey : 'carrito_id'
+            as : 'carritos',
+            
+            foreignKey : 'carrito_id',
+            
+            timestamps: false
         }
         )
     }

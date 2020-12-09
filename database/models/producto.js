@@ -42,15 +42,18 @@ module.exports = function(sequelize,dataTypes){
             as : 'imagenes',
             foreignKey: 'producto_id'     
         }
-        ),
-    Producto.hasMany(
-        models.Carrito_producto,
+        )
+    Producto.belongsToMany(
+        models.Carrito,
         {
-            as : 'producto_carrito',
-            foreignKey : 'producto_id'
+            as : 'carritos',
+            through: 'carrito_producto',
+            foreignKey : 'producto_id',
+            otherKey: 'carrito_id',
+            timestamps: false
         }
         )
-    }
+}
     return Producto 
     
 

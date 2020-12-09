@@ -7,23 +7,22 @@
         <table>
             <tr>
                 <td><strong>Productos</strong></td>
-                <td><strong>Subtotal</strong></td>
+                <td><strong>Precio con descuento</strong></td>
             </tr>
-
-            <tr>
-                <td class="">
-                    <div class="imgg">
-                        <img src="/images/imagenesProductos/buzo1.jpg" class="img-carrito" alt="imagen del Producto">
-                    </div>
-                    <p class="detalle-carrito">Detalle del producto(Color, talle)</p class="producc">
-                    <h3 class="prec precio-unidad">$precio-unidad</h3>
-                    <p>- 1 +</p>
-                </td>
-                <td class="subtotal">
-                    <h3 class="prec precio-cantidad">$precio-cantidad</h3>
-                    <p>icono</p>
-                </td>
-            </tr>
+            <%for(let i = 0 ; i < productos.length ; i++ ){%>
+                <tr>
+                    <td class="">
+                        <div class="imgg">
+                            <img src="/images/imagenesProductos/<%=productos[i].img[0].imagen%>" class="img-carrito" alt="imagen del Producto">
+                        </div>
+                        <p class="detalle-carrito"><%=productos[i].producto.nombre%></p class="producc">
+                        <h3 class="prec precio-unidad">$<%=productos[i].producto.precio%></h3>
+                    </td>
+                    <td class="subtotal">
+                        <h3 class="prec precio-cantidad">$<%=productos[i].producto.precioConDescuento%></h3>
+                    </td>
+                </tr>
+            <%}%>
         </table>
 
         <form action="" method="POST">
@@ -65,7 +64,7 @@
     
                     <nav class="medios-pago centrar">
                         <h4>MEDIOS DE PAGO</h4>
-                        <a href="#"><img src="imagenes/medios-pago.png" alt=""></a>
+                        <a href="#"><img src="/images/logos/medios-pago.png" alt=""></a>
                     </nav>
     
                     <nav class="contactanos centrar">
@@ -80,8 +79,8 @@
                 <div class="seguinos">
                     <h4>Seguinos</h4>
                     <hr class="linea">
-                    <a href="#"><img src="imagenes/facebook.png" alt=""></a>
-                    <a href="#"><img src="imagenes/instagram-bosquejado.png" alt=""></a>
+                    <a href="#"><img src="/images/logos/facebook.png" alt=""></a>
+                    <a href="#"><img src="/images/logos/instagram-bosquejado.png" alt=""></a>
                 </div>
             </div>
         </footer>

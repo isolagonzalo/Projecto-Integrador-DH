@@ -6,9 +6,15 @@
             <input style="color: aliceblue;" class="inputBuscar" type="text" placeholder="Buscar">
            </div>
 
-            <a href="#" class="link-carrito">
+           <%if(typeof usuario == 'undefined'){%>
+            <a href="/users/login" class="link-carrito">
                 <i class="fas fa-shopping-cart"></i>
             </a>
+        <%}else{%>
+            <a href="/carrito/<%=usuario.id%>" class="link-carrito">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+        <%}%>
         
         
         </div>
@@ -71,13 +77,33 @@
         <a href="/productos"><li>Productos</li></a>
         <a href="/contacto"><li>Contacto</li></a>
         <a href="/comoComprar"><li>Como Comprar</li></a>
-         <li class="cajitaDelCarrito">
+         <div class="cajitaDelCarrito">
             <%if(typeof usuario == 'undefined'){%>
              <a href="/users/login"><i class="fas fa-shopping-cart"></i></a>
             <%}else{%>
-                <a href="/carrito/<%=usuario.id%>"><i class="fas fa-shopping-cart"></i></a>
+                
+                    <a href="/carrito/<%=usuario.id%>"><i class="fas fa-shopping-cart"></i>
+                    <div id="caja-carrito-nuevo" class="div-carrito-numero" style="position: absolute;
+                    top: -9px;
+                    right: 5px;
+                    width: 19px;
+                    height: 19px;
+                    background: white;
+                    border-radius: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;">
+                    <%if(typeof numero == 'undefined'){%>
+                        <p id="numero-carrito" style="height: 31px; margin: 0px; color: black !important;">0</p>
+                    <%}else{%>
+                        <p id="numero-carrito" style="height: 31px; margin: 0px; color: black !important;"><%=numero%></p>
+                    <%}%>
+
+                    </div>
+                </a>
+                
             <%}%>
-        </li>
+            </div>
     </ul>
 <div>
 

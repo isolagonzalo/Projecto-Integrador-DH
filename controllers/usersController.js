@@ -25,7 +25,7 @@ const userController = {
                 if(bcrypt.compareSync(req.body.contrasenia, contraseniaEncriptada)){
                     req.session.usuarioLogueado = usuario
                     if(req.body.recordame != undefined){
-                        res.cookie('recordame', usuario.email, {maxAge: 60000})
+                        res.cookie('recordame', usuario.email, {maxAge: 600000})
                     }
                     res.redirect('/');
                 }else{

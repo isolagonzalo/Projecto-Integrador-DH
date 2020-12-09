@@ -45,6 +45,7 @@ const indexController = {
     },
     cerrarSesion:(req,res,next)=>{
         if(req.session.usuarioLogueado != undefined){
+            res.cookie('recordame', undefined)
             req.session.usuarioLogueado = undefined
             res.redirect('/')
         }

@@ -519,7 +519,18 @@ article{
 }
 .cajitaDelCarrito{
     position: absolute;
-    right: 5%;
+    width: 40px;
+    height: 30px;
+    right: 10%;
+    top: 9px;
+}
+.cajitaDelCarrito:hover{
+    height: 25px;
+    border-radius: 20%;
+    background-color: #6b6d6b;
+}
+.div-carrito-numero:hover{
+    background-color: #4a4a4a;
 }
 
 
