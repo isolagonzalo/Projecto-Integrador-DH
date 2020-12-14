@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/headCarrito', {title: 'Carrito'}) %>
+    <%- include('../partials/headCarrito', {title: 'Orden'}) %>
 <body>
     <%- include('../partials/header') %>
     <main>
@@ -20,36 +20,14 @@
                     </td>
                     <td class="subtotal">
                         <h3 class="prec precio-cantidad">$<%=productos[i].producto.precioConDescuento%></h3>
-                        <a href="/borrado/<%=productos[i].id%>" style="color: rgb(43, 42, 42); margin-left: 35px; margin-top: 5px;"><i class="fas fa-trash-alt prec"></i></a>
+                        
                     </td>
                 </tr>
             <%}%>
         </table>
 
         <h2>Total: $<%=productos.total%></h2>
-        <HR></HR>
-        <BR></BR>
         
-        <form action="/carrito/<%=usuario.id%>" method="POST" class="formularioPerris">
-            <h1 style="font-size: 32px; margin: auto 0;">Completar datos para la compra</h1>
-            <input type="text" name="usuario_id" value="<%=usuario.id%>" style="display: none;">
-            <input type="text" name="carrito_id" value="<%=carrito.id%>" style="display: none;">
-            <hr>
-            <br>
-            <br>
-            <label for="nombre">Nombre Completo</label>
-            <input type="text" name="nombre" value="<%=usuario.nombre%>">
-            <BR></BR>
-            <label for="email">E-mail</label>
-            <input type="email" name="email" value="<%=usuario.email%>">    
-            <BR></BR>
-            <label for="telefono">Telefono - WhatsApp - (<span style="font-size: 20px; color: rgb(231, 64, 64); margin-left: 10px; margin-right: 10px;">Obligatorio!</span>)</label>
-            <input type="number" name="telefono" value="">    
-            <BR></BR>
-            <label for="nombre">Direccion (<span style="font-size: 20px; color: rgb(231, 64, 64); margin-left: 10px; margin-right: 10px;">Obligatorio!</span>)</label>
-            <input type="text" name="direccion" value="">
-            <button type="submit">Comprar</button>
-        </form>
     </main>
         <footer>
             <div class="container">

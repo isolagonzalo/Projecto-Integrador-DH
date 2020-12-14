@@ -1,3 +1,23 @@
+.caja-administrar{
+     margin-top: 10px;
+     margin-bottom: 10px;
+     display: flex; 
+     justify-content: space-around;
+ }
+ .caja-administrar a{
+     width: 30%;
+     border-radius: 10px;
+     text-align: center;
+     margin-bottom: 10px;
+     color: rgb(19 18 18);
+     font-size: 16px;
+     background-color: rgb(166 222 119)
+ }
+ .caja-administrar a:hover{
+      background-color: rgb(141, 129, 129);
+ }
+
+
 .datos {
      display: flex;
      justify-content: center;

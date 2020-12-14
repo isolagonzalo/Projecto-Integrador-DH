@@ -11,10 +11,21 @@
                 <h1 class="nombrePrincipal">Nacho Store</h1>
             </a>
         </div>
+        <%if(usuario.tipo == 'admin'){%>
+            <div style="background-color: rgb(247, 215, 173);">
+                <h1 style="text-align: center; margin-bottom: 0;">Administrar Pagina</h1>
+                <hr>
+                <div class="caja-administrar">
+                    <a href="/listadoUsuarios">Lista de usuarios</a>
+                    <a href="/listadoProductos">Lista de productos</a>
+                    <a href="/listadoOrdenes">Ordenes de compra</a>
+                </div>
+            </div>
+        <%}%>
 
     <div class="miCuenta">
         
-        <h2>Mi cuenta de <%=usuario.tipo%></h2>
+        <h2>Mi cuenta de <%=usuario.tipo%>/<a href="/misCompras/<%=usuario.id%>"><button class="boton" style="margin-left: 20px;">Ver mis compras</button></a></h2>
         <h5>Datos Personales</h5>
         <div class="centrarPerfil">
                 <div class="datos">
@@ -39,18 +50,6 @@
                     <a href="/users/eliminar/<%=usuario.id%>"><button class="boton-eliminar">ELIMINAR CUENTA</button></a>
                 </div>
         </div>
-        <h5>Mis Órdenes</h5>
-        <table class="tabla">
-            <tr>
-                <td><strong>Orden</strong></td>
-                <td><strong>Fecha</strong></td>
-                <td><strong>Estado</strong></td>
-                <td><strong>Pago</strong></td>
-                <td><strong>Envio</strong></td>
-                <td><strong>Total</strong></td>
-            </tr>
-        </table>
-
     </div>
 
     <footer>
@@ -95,7 +94,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="/javascripts/jquery.min.js"></script>
 
     <script src="/javascripts/scripts.js"></script>
 

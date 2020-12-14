@@ -99,7 +99,17 @@ const produtosController = {
                 where:{id:req.params.id}
             })
             .then(function(e){
-                res.redirect('/productos/')
+                db.Carrito.findAll({
+                    where:{estado:'abierto'}
+                })
+                .then(carritosAbiertos=>{
+                    db.Carrito_producto.destroy({
+                        where:{producto_id:req.params.id}
+                    })
+                    .then(carrito=>{
+                        res.redirect('/productos/')
+                    })
+                })
             })
     },
     //CARRITO 
