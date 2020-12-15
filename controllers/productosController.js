@@ -103,12 +103,13 @@ const produtosController = {
                     where:{estado:'abierto'}
                 })
                 .then(carritosAbiertos=>{
-                    db.Carrito_producto.destroy({
-                        where:{producto_id:req.params.id}
-                    })
-                    .then(carrito=>{
-                        res.redirect('/productos/')
-                    })
+                    console.log(carritosAbiertos);
+                    for(let i = 0 ; i < carritosAbiertos.length ;){
+                        db.Carrito_producto.destroy({
+                            where:{producto_id:req.params.id,carrito_id:carritosAbiertos[i].id}
+                        })
+                    }
+                    res.redirect('/')
                 })
             })
     },
