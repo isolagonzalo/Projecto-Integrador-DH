@@ -9,7 +9,8 @@
                 <td><strong>Productos</strong></td>
                 <td><strong>Precio con descuento</strong></td>
             </tr>
-            <%for(let i = 0 ; i < productos.length ; i++ ){%>
+            <%for(let i = 0 ; i < productos.length ; i++ ){
+                if(productos[i].producto.estado=="activo"){%>
                 <tr>
                     <td class="">
                         <div class="imgg">
@@ -23,6 +24,7 @@
                         <a href="/borrado/<%=productos[i].id%>" style="color: rgb(43, 42, 42); margin-left: 35px; margin-top: 5px;"><i class="fas fa-trash-alt prec"></i></a>
                     </td>
                 </tr>
+                <%}%>
             <%}%>
         </table>
 
