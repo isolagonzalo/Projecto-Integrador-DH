@@ -99,10 +99,12 @@ const produtosController = {
                 where:{id:req.params.id}
             })
             .then(function(e){
-                db.Carrito.findAll({
+                /*db.Carrito.findAll({
                     where:{estado:'abierto'}
+                */
+               res.redirect('/')
                 })
-                .then(carritosAbiertos=>{
+                /*.then(carritosAbiertos=>{
                     for(let i = 0 ; i < carritosAbiertos.length ;){
                         
                        db.Carrito_producto.destroy({
@@ -110,9 +112,9 @@ const produtosController = {
                         })
                         .then(xd=>{})
                     }
-                    res.redirect('/')
+                    
                 })
-            })
+            })*/
     },
     //CARRITO 
     agregarCarrito:(req,res)=>{

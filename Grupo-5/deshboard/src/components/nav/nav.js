@@ -12,7 +12,7 @@ function nav() {
 				<div className="sidebar-brand-icon">
 					<i className="fas fa-chart-line"></i>
 				</div>
-				<div className="sidebar-brand-text mx-3">Admin</div>
+				<div className="sidebar-brand-text mx-3">Administración</div>
 			</a>
 
 			
@@ -22,20 +22,20 @@ function nav() {
 			<li className="nav-item active">
 				<a className="nav-link" href="/">
 					<i className="fas fa-fw fa-tachometer-alt"></i>
-					<span>Dashboard</span></a>
+					<span>Tablero</span></a>
 			</li>
 
 			
 			<hr className="sidebar-divider"/>
 
 			
-			<div className="sidebar-heading">Actions</div>
+			<div className="sidebar-heading">Comportamiento</div>
 
 			
 			<li className="nav-item">
 				<a className="nav-link collapsed" href="/">
 					<i className="fas fa-fw fa-folder"></i>
-					<span>Pages</span>
+					<span>Paginas</span>
 				</a>
 			</li>
 
@@ -43,14 +43,14 @@ function nav() {
 			<li className="nav-item">
 				<a className="nav-link" href="/">
 					<i className="fas fa-fw fa-chart-area"></i>
-					<span>Charts</span></a>
+					<span>Gráficos</span></a>
 			</li>
 
 			
 			<li className="nav-item">
 				<a className="nav-link" href="/">
 					<i className="fas fa-fw fa-table"></i>
-					<span>Tables</span></a>
+					<span>Mesas</span></a>
 			</li>
 
 			

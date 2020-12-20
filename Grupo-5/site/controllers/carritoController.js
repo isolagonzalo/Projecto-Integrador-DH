@@ -13,6 +13,13 @@ const carritoController = {
                     include:['producto','img'],
                     where:{carrito_id:carrito.id}})
                     .then(carritoProductos=>{
+                        /*let productosActivos = []
+                        for(let i = 0 ; i < carritoProductos.length ; i++ ){
+                            if(carritoProductos[i].producto.estado=="activo"){
+                                let element = carritoProductos[i]
+                                productosActivos.push(element)
+                            }
+                        }*/
                         
                         if(req.session.usuarioLogueado!=undefined){
                             for(let i = 0 ; i < carritoProductos.length ; i++){
@@ -20,7 +27,9 @@ const carritoController = {
                             }
                             let total = 0;
                             for(let i = 0 ; i < carritoProductos.length ; i++){
+                                if(carritoProductos[i].producto.estado=="activo"){
                                 total = total + carritoProductos[i].producto.precioConDescuento
+                                }
                             }
                             
                             carritoProductos.total = total
@@ -49,7 +58,8 @@ const carritoController = {
                                where:{id:req.params.id}
                            })
                            .then(productoBorrado=>{
-                            res.send('borrado perri')
+                            res.redirect("/")
+                        
                            })
                         }
                     })

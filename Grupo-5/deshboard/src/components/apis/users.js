@@ -36,7 +36,7 @@ class Info extends Component {
                 <div className="card-body">
                     <div className="row no-gutters align-items-center">
                         <div className="col mr-2">
-                            <div className="text-xs font-weight-bold text-warning text-uppercase mb-1">Users quantity
+                            <div className="text-xs font-weight-bold text-warning text-uppercase mb-1">CANTIDAD DE USUARIOS
                             </div>
                             <div className="h5 mb-0 font-weight-bold text-gray-800">{this.state.users}</div>
                         </div>

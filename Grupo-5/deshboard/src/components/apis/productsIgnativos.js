@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-const api = `http://localhost:3001/api/productos/cantidadPro`
+const api = `http://localhost:3001/api/productos/cantidadProInactivos`
 
 class ProductsIgnativos extends Component {
 	constructor(){
@@ -36,7 +36,7 @@ class ProductsIgnativos extends Component {
                 <div className="card-body">
                     <div className="row no-gutters align-items-center">
                         <div className="col mr-2">
-                            <div className="text-xs font-weight-bold text-primary text-uppercase mb-1"> Products in Data Base</div>
+                            <div className="text-xs font-weight-bold text-primary text-uppercase mb-1"> PRODUCTOS EN BASE DE DATOS INACTIVOS</div>
                             <div className="h5 mb-0 font-weight-bold text-gray-800">{this.state.products}</div>
                         </div>
                         <div className="col-auto">

@@ -3,8 +3,8 @@ const express = require('express');
 const router = express.Router();
 
 // ************ Controller Require ************
-const carritoController = require('../../controllers/api/carritosFinApiController');
+const carritoController = require('../../controllers/api/categoriasApiController');
 
-router.get('/carritos/finalizados', carritoController.cantidadCarritos); /* GET - home page */
+router.get('/productos/categorias', carritoController.categorias); /* GET - home page */
 
 module.exports = router;

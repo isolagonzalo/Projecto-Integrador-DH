@@ -9,6 +9,10 @@ var indexRouter = require('./routes/index');
 var productosRouter = require('./routes/productos');
 var usersRouter = require('./routes/users');
 const productsApiRouter = require('./routes/api/productosApiRouter') //Rutas de api
+const productsInactivosApiRouter = require('./routes/api/productosInactivosApisRouter') //Rutas de api
+const ultimoProductApiRouter = require('./routes/api/ultimoProductoApiRouter') //Rutas de api
+const productosCategoriaApiRouter = require('./routes/api/categoriasApiController') //Rutas de api
+
 const usuariosApiRouter = require('./routes/api/usuariosApiRouter') //Rutas de api
 const carritosFinApiRouter = require('./routes/api/carritosFinApiRouter') //Rutas de api
 const cors = require('./middlewares/cors'); // Solucion de endpoints
@@ -37,8 +41,13 @@ app.use('/', indexRouter);
 app.use('/productos', productosRouter);
 app.use('/users', usersRouter);
 app.use('/api', productsApiRouter);
+app.use('/api', productsInactivosApiRouter);
+app.use('/api', ultimoProductApiRouter);
+app.use('/api', productosCategoriaApiRouter);
+
 app.use('/api', usuariosApiRouter);
 app.use('/api', carritosFinApiRouter);
+
 
 
 

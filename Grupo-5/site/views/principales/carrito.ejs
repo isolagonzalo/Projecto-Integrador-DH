@@ -40,16 +40,37 @@
             <br>
             <br>
             <label for="nombre">Nombre Completo</label>
-            <input type="text" name="nombre" value="<%=usuario.nombre%>">
+            <input type="text" name="nombre" value="<%=usuario.nombre%>" id="nombre" >
             <BR></BR>
             <label for="email">E-mail</label>
-            <input type="email" name="email" value="<%=usuario.email%>">    
+            <input type="email" name="email" value="<%=usuario.email%>" id="email">    
             <BR></BR>
+
             <label for="telefono">Telefono - WhatsApp - (<span style="font-size: 20px; color: rgb(231, 64, 64); margin-left: 10px; margin-right: 10px;">Obligatorio!</span>)</label>
-            <input type="number" name="telefono" value="">    
-            <BR></BR>
+            
+            <%if(usuario.telefono == 'undefined'){%>
+                <input type="number" name="telefono" value="" id="telefono">    
+                <BR></BR>
+            <%} else{ %>
+                <input type="number" name="telefono" value="<%=usuario.telefono%>" id="telefono">    
+                <BR></BR>
+            <%}%>
+            
             <label for="nombre">Direccion (<span style="font-size: 20px; color: rgb(231, 64, 64); margin-left: 10px; margin-right: 10px;">Obligatorio!</span>)</label>
-            <input type="text" name="direccion" value="">
+
+            <%if(usuario.direccion == 0){%>
+                <input type="text" name="direccion" value="" id="direccion">
+            <%} else{ %>
+                <input type="text" name="direccion" value="<%=usuario.direccion%>" id="direccion">
+            <%}%>
+
+            <div class="errores">
+                <ul>
+    
+                </ul>
+            </div>
+            
+
             <button type="submit">Comprar</button>
         </form>
     </main>
@@ -103,7 +124,7 @@
     
         <script src="/javascripts/menu.js"></script>
     
-    
+        <script src="/javascripts/validacionesVistaCarrito.js"></script>
     
     </body>
     </html>

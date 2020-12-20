@@ -2,10 +2,10 @@ import React from 'react';
 import Products from '../apis/products'
 import Amount from '../apis/amount'
 import Users from '../apis/users'
-import ProductsIgnativos from '../apis/products'
+import ProductsIgnativos from '../apis/productsIgnativos'
 
 import Categories from './statistics/categories'
-import LastProduct from './statistics/lastProduct'
+import LastProduct from '../apis/lastProduct'
 
 
 
