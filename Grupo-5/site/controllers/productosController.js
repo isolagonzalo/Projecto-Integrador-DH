@@ -18,14 +18,17 @@ const produtosController = {
                 db.Carrito.findOne({include:['carritos'],where:{usuario_id:req.session.usuarioLogueado.id,estado:'abierto'}
             })
             .then(numeroCarrito=>{
-                db.Carrito_producto.findAll({where:{carrito_id:numeroCarrito.id}})
+                if(numeroCarrito){
+                    db.Carrito_producto.findAll({where:{carrito_id:numeroCarrito.id}})
                 .then(numeroTotal=>{
-                    
                     let numero;
                     numero = numeroTotal.length
                     console.log(numeroTotal.length);
-                    res.render('productos/productos',{usuario : req.session.usuarioLogueado , productos:producto,numero});
+                    res.render('principales/index',{usuario : req.session.usuarioLogueado , productos:producto , numero});
                 })
+                }else{
+                    res.render('principales/index',{usuario : req.session.usuarioLogueado , productos:producto });
+                }
             })
                 
             }else{

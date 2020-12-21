@@ -10,6 +10,9 @@
     justify-content: center;
     align-items: center;
 }
+.datos-detalle-producto{
+    padding: 2rem;
+}
 .boton-editar-producto{
     background-color: rgb(79, 76, 253);
     border-radius: 5px;

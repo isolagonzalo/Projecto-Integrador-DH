@@ -11,8 +11,10 @@
                 <h1 class="nombrePrincipal">Nacho Store</h1>
             </a>
         </div>
-        <div class="Compra-finalizada" style="display: flex; align-items: center; justify-content: center; background-color: burlywood;">
+        <div class="Compra-finalizada" style="text-align: center;display: flex; align-items: center;flex-direction: column; justify-content: center; background-color: burlywood;">
             <h1>Gracias por su compra ,ante cualquier duda puede consultarnos!</h1>
+            
+            <div id="gifGraciasCompra" ></div>
         </div>
     </main>
     <main class="main">
@@ -25,42 +27,9 @@
         </div>
 
     </main>
-    <footer>
-        <div class="container">
-            <div class="lista">
-                <nav class="centrar">
-                    <h4>NAVEGACIÓN</h4>
-                    <ul>
-                        <li><a href="#">Inicio</a></li>
-                        <li><a href="#">Productos</a></li>
-                        <li><a href="#">Contacto</a></li>
-                        <li><a href="#">Tabla de talles</a></li>
-                        <li><a href="#">Como comprar</a></li>
-                    </ul>
-                </nav>
 
-                <nav class="medios-pago centrar">
-                    <h4>MEDIOS DE PAGO</h4>
-                    <a href="#"><img src="imagenes/medios-pago.png" alt=""></a>
-                </nav>
-
-                <nav class="contactanos centrar">
-                    <h4>CONTACTANOS</h4>
-                    <ul>
-                        <li><a href="#">0341 4213906 / WhatsApp 3415030029 / Mayoristas 3416884200</a></li>
-                        <li><a href="#">timiotul@outlook.com</a></li>
-                        <li><a href="#">Calle Falsa 1234</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="seguinos">
-                <h4>Seguinos</h4>
-                <hr class="linea">
-                <a href="#"><img src="imagenes/facebook.png" alt=""></a>
-                <a href="#"><img src="imagenes/instagram-bosquejado.png" alt=""></a>
-            </div>
-        </div>
-    </footer>
+    <%- include('../partials/footer') %>
+    
     <a href="https://wa.me/5211234567890?text=Me%20gustaría%20saber%20el%20precio%20del%20coche" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
     <script src="/javascripts/jquery.min.js"></script>
 
@@ -71,5 +40,7 @@
     <script src="/javascripts/jquery.min.js"></script>
 
     <script src="/javascripts/menu.js"></script>
+
+    <script src="/javascripts/gifApis.js"></script>
 </body>
 </html>

@@ -18,7 +18,8 @@ const indexController = {
                 db.Carrito.findOne({include:['carritos'],where:{usuario_id:req.session.usuarioLogueado.id,estado:'abierto'}
             })
             .then(numeroCarrito=>{
-                db.Carrito_producto.findAll({where:{carrito_id:numeroCarrito.id}})
+                if(numeroCarrito){
+                    db.Carrito_producto.findAll({where:{carrito_id:numeroCarrito.id}})
                 .then(numeroTotal=>{
                     
                     let numero;
@@ -26,6 +27,10 @@ const indexController = {
                     console.log(numeroTotal.length);
                     res.render('principales/index',{usuario : req.session.usuarioLogueado , productos:producto , numero});
                 })
+                }else{
+                    res.render('principales/index',{usuario : req.session.usuarioLogueado , productos:producto});
+                }
+                
             })  
             }else{
                 res.render('principales/index',{productos:producto})
@@ -38,14 +43,17 @@ const indexController = {
             db.Carrito.findOne({include:['carritos'],where:{usuario_id:req.session.usuarioLogueado.id,estado:'abierto'}
         })
         .then(numeroCarrito=>{
-            db.Carrito_producto.findAll({where:{carrito_id:numeroCarrito.id}})
+            if(numeroCarrito){
+                db.Carrito_producto.findAll({where:{carrito_id:numeroCarrito.id}})
             .then(numeroTotal=>{
-                
                 let numero;
                 numero = numeroTotal.length
                 console.log(numeroTotal.length);
-                res.render('principales/comoComprar',{usuario : req.session.usuarioLogueado,numero})
+                res.render('principales/comoComprar',{usuario : req.session.usuarioLogueado , numero});
             })
+            }else{
+                res.render('principales/comoComprar',{usuario : req.session.usuarioLogueado });
+            }
         })
             
         }else{
@@ -58,14 +66,17 @@ const indexController = {
             db.Carrito.findOne({include:['carritos'],where:{usuario_id:req.session.usuarioLogueado.id,estado:'abierto'}
         })
         .then(numeroCarrito=>{
+            if(numeroCarrito){
             db.Carrito_producto.findAll({where:{carrito_id:numeroCarrito.id}})
             .then(numeroTotal=>{
-                
                 let numero;
                 numero = numeroTotal.length
                 console.log(numeroTotal.length);
-                res.render('principales/contacto',{usuario : req.session.usuarioLogueado,numero})
+                res.render('principales/contacto',{usuario : req.session.usuarioLogueado , numero});
             })
+            }else{
+                res.render('principales/contacto',{usuario : req.session.usuarioLogueado});
+            }
         })
             
         }else{
@@ -77,14 +88,17 @@ const indexController = {
             db.Carrito.findOne({include:['carritos'],where:{usuario_id:req.session.usuarioLogueado.id,estado:'abierto'}
         })
         .then(numeroCarrito=>{
-            db.Carrito_producto.findAll({where:{carrito_id:numeroCarrito.id}})
+            if(numeroCarrito){
+                db.Carrito_producto.findAll({where:{carrito_id:numeroCarrito.id}})
             .then(numeroTotal=>{
-                
                 let numero;
                 numero = numeroTotal.length
                 console.log(numeroTotal.length);
-                res.render('principales/carrito',{usuario : req.session.usuarioLogueado,numero})
+                res.render('principales/carrito',{usuario : req.session.usuarioLogueado , numero});
             })
+            }else{
+                res.render('principales/carrito',{usuario : req.session.usuarioLogueado  });
+            }
         })
            
         }else{
