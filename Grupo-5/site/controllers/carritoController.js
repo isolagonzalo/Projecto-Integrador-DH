@@ -58,7 +58,7 @@ const carritoController = {
                                where:{id:req.params.id}
                            })
                            .then(productoBorrado=>{
-                            res.redirect("/")
+                            res.redirect("/carrito/"+carrito.id)
                         
                            })
                         }

@@ -15,7 +15,19 @@ const produtosController = {
                 }
             }
             if(req.session.usuarioLogueado != undefined){
-                res.render('productos/productos',{usuario : req.session.usuarioLogueado , productos:producto});
+                db.Carrito.findOne({include:['carritos'],where:{usuario_id:req.session.usuarioLogueado.id,estado:'abierto'}
+            })
+            .then(numeroCarrito=>{
+                db.Carrito_producto.findAll({where:{carrito_id:numeroCarrito.id}})
+                .then(numeroTotal=>{
+                    
+                    let numero;
+                    numero = numeroTotal.length
+                    console.log(numeroTotal.length);
+                    res.render('productos/productos',{usuario : req.session.usuarioLogueado , productos:producto,numero});
+                })
+            })
+                
             }else{
                 let usuario;
                 res.render('productos/productos',{productos:producto,usuario:usuario})
@@ -46,8 +58,10 @@ const produtosController = {
                     imagen:req.files[i].filename,
                     producto_id:e.id
             })
+            .then(renderizar => {
+                res.redirect('/') 
+            })
         }
-            res.redirect('/') 
         })
     },
     detalle:(req,res)=>{

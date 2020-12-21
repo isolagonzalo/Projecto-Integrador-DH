@@ -83,6 +83,7 @@
             <%}else{%>
                 
                     <a href="/carrito/<%=usuario.id%>"><i class="fas fa-shopping-cart"></i>
+                        <%if(typeof numero != 'undefined'){%>
                     <div id="caja-carrito-nuevo" class="div-carrito-numero" style="position: absolute;
                     top: -9px;
                     right: 5px;
@@ -93,8 +94,9 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;">
+                    <%}%>
                     <%if(typeof numero == 'undefined'){%>
-                        <p id="numero-carrito" style="height: 31px; margin: 0px; color: black !important;">0</p>
+                        <p id="numero-carrito" style="height: 31px; margin: 0px; color: black !important;"></p>
                     <%}else{%>
                         <p id="numero-carrito" style="height: 31px; margin: 0px; color: black !important;"><%=numero%></p>
                     <%}%>

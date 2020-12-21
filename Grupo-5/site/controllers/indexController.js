@@ -15,7 +15,18 @@ const indexController = {
                 }
             }
             if(req.session.usuarioLogueado != undefined){
-                res.render('principales/index',{usuario : req.session.usuarioLogueado , productos:producto});
+                db.Carrito.findOne({include:['carritos'],where:{usuario_id:req.session.usuarioLogueado.id,estado:'abierto'}
+            })
+            .then(numeroCarrito=>{
+                db.Carrito_producto.findAll({where:{carrito_id:numeroCarrito.id}})
+                .then(numeroTotal=>{
+                    
+                    let numero;
+                    numero = numeroTotal.length
+                    console.log(numeroTotal.length);
+                    res.render('principales/index',{usuario : req.session.usuarioLogueado , productos:producto , numero});
+                })
+            })  
             }else{
                 res.render('principales/index',{productos:producto})
             }
@@ -24,21 +35,58 @@ const indexController = {
     },
     comoComprar:(req,res)=>{
         if(req.session.usuarioLogueado != undefined){
-            res.render('principales/comoComprar',{usuario : req.session.usuarioLogueado})
+            db.Carrito.findOne({include:['carritos'],where:{usuario_id:req.session.usuarioLogueado.id,estado:'abierto'}
+        })
+        .then(numeroCarrito=>{
+            db.Carrito_producto.findAll({where:{carrito_id:numeroCarrito.id}})
+            .then(numeroTotal=>{
+                
+                let numero;
+                numero = numeroTotal.length
+                console.log(numeroTotal.length);
+                res.render('principales/comoComprar',{usuario : req.session.usuarioLogueado,numero})
+            })
+        })
+            
         }else{
             res.render('principales/comoComprar')
         }
     },
     contacto:(req,res)=>{
+        
         if(req.session.usuarioLogueado != undefined){
-            res.render('principales/contacto',{usuario : req.session.usuarioLogueado})
+            db.Carrito.findOne({include:['carritos'],where:{usuario_id:req.session.usuarioLogueado.id,estado:'abierto'}
+        })
+        .then(numeroCarrito=>{
+            db.Carrito_producto.findAll({where:{carrito_id:numeroCarrito.id}})
+            .then(numeroTotal=>{
+                
+                let numero;
+                numero = numeroTotal.length
+                console.log(numeroTotal.length);
+                res.render('principales/contacto',{usuario : req.session.usuarioLogueado,numero})
+            })
+        })
+            
         }else{
             res.render('principales/contacto')
         }
     },
     carrito:(req,res)=>{
         if(req.session.usuarioLogueado != undefined){
-            res.render('principales/carrito',{usuario : req.session.usuarioLogueado})
+            db.Carrito.findOne({include:['carritos'],where:{usuario_id:req.session.usuarioLogueado.id,estado:'abierto'}
+        })
+        .then(numeroCarrito=>{
+            db.Carrito_producto.findAll({where:{carrito_id:numeroCarrito.id}})
+            .then(numeroTotal=>{
+                
+                let numero;
+                numero = numeroTotal.length
+                console.log(numeroTotal.length);
+                res.render('principales/carrito',{usuario : req.session.usuarioLogueado,numero})
+            })
+        })
+           
         }else{
             res.render('principales/carrito')
         }
