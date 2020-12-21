@@ -24,10 +24,10 @@ const produtosController = {
                     let numero;
                     numero = numeroTotal.length
                     console.log(numeroTotal.length);
-                    res.render('principales/index',{usuario : req.session.usuarioLogueado , productos:producto , numero});
+                    res.render('productos/productos',{usuario : req.session.usuarioLogueado , productos:producto , numero});
                 })
                 }else{
-                    res.render('principales/index',{usuario : req.session.usuarioLogueado , productos:producto });
+                    res.render('productos/productos',{usuario : req.session.usuarioLogueado , productos:producto });
                 }
             })
                 

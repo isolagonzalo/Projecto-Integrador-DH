@@ -115,7 +115,12 @@ const indexController = {
     listadoDeUsuarios:(req,res)=>{
         db.Usuario.findAll()
         .then(usuarios=>{
-            res.render('principales/listaUsuarios',{usuarios:usuarios})
+            if(req.session.usuarioLogueado != undefined){
+                res.render('principales/listaUsuarios',{usuarios:usuarios, usuario : req.session.usuarioLogueado})
+            }else{
+                let usuario;
+                res.render('principales/listaUsuarios',{usuarios:usuarios, usuario : usuario})
+            }
         })
     },
     listadoProductos:(req,res)=>{

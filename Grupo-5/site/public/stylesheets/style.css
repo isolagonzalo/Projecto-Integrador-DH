@@ -299,6 +299,7 @@ h1{
     }
     .caja-input input{
         color: honeydew;
+        display: none !important;
     }
     /*ARTICULOS*/
     
